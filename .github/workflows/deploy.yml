@@ -5,28 +5,36 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: '18'
           cache: 'npm'
-          
+
       - name: Install dependencies
-        run: npm ci
-        
-      - name: Build
+        run: npm install
+
+      - name: Build project
         run: npm run build
-        
-      - name: Deploy to GitHub Pages 🚀
+
+      - name: Create .nojekyll file
+        run: touch out/.nojekyll
+
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages # Branch yang akan digunakan untuk deployment
-          folder: out # Folder yang berisi static files
-          clean: true # Hapus file yang tidak diperlukan di branch gh-pages
+          folder: out
+          branch: gh-pages
+          dotfiles: true
+          clean: true
