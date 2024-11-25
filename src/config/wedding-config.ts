@@ -217,49 +217,20 @@ export const weddingConfig = {
     ]
   },
   gallery: {
-    // prewedding: [
-    //   {
-    //     url: "/images/gallery/pre1.jpg",
-    //     caption: "Caption foto"
-    //   }
-    //   // ... more photos
-    // ],
-    // engagement: [
-    //   {
-    //     url: "/images/gallery/eng1.jpg",
-    //     caption: "Caption foto"
-    //   }
-    //   // ... more photos
-    // ]
-    // prewedding: Array(6).fill(null).map((_, i) => ({
-    //   url: `https://via.placeholder.com/800x600.jpg?text=Pre+Wedding+${i + 1}`,
-    //   caption: `Pre Wedding Photo ${i + 1}`
-    // })),
-    // engagement: Array(4).fill(null).map((_, i) => ({
-    //   url: `https://via.placeholder.com/800x600.jpg?text=Engagement+${i + 1}`,
-    //   caption: `Engagement Photo ${i + 1}`
-    // }))
-    prewedding: Array(6).fill(null).map((_, i) => ({
-      url: `/images/gallery/pre${i + 1}.jpg`,
-      caption: `Pre Wedding Photo ${i + 1}`
-    })),
-    engagement: Array(4).fill(null).map((_, i) => ({
-      url: `/images/gallery/eng${i + 1}.jpg`,
-      caption: `Engagement Photo ${i + 1}`
-    }))
-
+    prewedding: [
+      {
+        url: '/wedding-invitation/images/gallery/pre1.jpg',
+        caption: 'Pre Wedding 1'
+      },
+      // ...
+    ]
   },
   music: {
     tracks: [
       {
-        src: "/music/song1.mp3",
-        title: "Lagu 1",
-        artist: "Artis 1"
-      },
-      {
-        src: "/music/song2.mp3",
-        title: "Lagu 2",
-        artist: "Artis 2"
+        src: '/wedding-invitation/music/song1.mp3',
+        title: 'Lagu 1',
+        artist: 'Artis 1'
       }
     ]
   },
