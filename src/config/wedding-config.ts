@@ -1,0 +1,313 @@
+export interface WeddingConfig {
+  couple: {
+    bride: {
+      name: string;
+      fullName: string;
+      photo: string;
+      parents: string;
+      about: string;
+      socialMedia: {
+        instagram?: string;
+        facebook?: string;
+        twitter?: string;
+      };
+    };
+    groom: {
+      name: string;
+      fullName: string;
+      photo: string;
+      parents: string;
+      about: string;
+      socialMedia: {
+        instagram?: string;
+        facebook?: string;
+        twitter?: string;
+      };
+    };
+    firstMeet: string;
+    loveStory: Array<{
+      date: string;
+      title: string;
+      description: string;
+      image: string;
+    }>;
+  };
+  event: {
+    akad: {
+      date: string;
+      time: string;
+      location: string;
+      address: string;
+      mapLink: string;
+      dresscode?: string;
+    };
+    reception: {
+      date: string;
+      time: string;
+      location: string;
+      address: string;
+      mapLink: string;
+      dresscode?: string;
+    };
+  };
+  gallery: {
+    prewedding: Array<{
+      url: string;
+      caption: string;
+    }>;
+    engagement: Array<{
+      url: string;
+      caption: string;
+    }>;
+  };
+  digitalEnvelope: {
+    banks: Array<{
+      name: string;
+      accountNumber: string;
+      accountHolder: string;
+    }>;
+    eWallets: Array<{
+      name: string;
+      number: string;
+      qrCode?: string;
+    }>;
+  };
+  rsvp: {
+    whatsappNumber: string;
+    formFields: Array<{
+      name: string;
+      label: string;
+      type: string;
+      options?: string[];
+    }>;
+  };
+  specialFeatures: {
+    countdownTimer: boolean;
+    photoBoothFrame: boolean;
+    virtualGuestBook: boolean;
+    liveStreaming: {
+      enabled: boolean;
+      platform: string;
+      link: string;
+    };
+  };
+  giftRegistry: Array<{
+    title: string;
+    description?: string;
+    image: string;
+    link?: string;
+  }>;
+}
+
+
+export const themes = {
+  sage: {
+    primary: "#B2BEB5",
+    secondary: "#E8EDE6",
+    accent: "#9CAF88",
+    text: "#454B1B"
+  },
+  dustyBlue: {
+    primary: "#4F6F8F",
+    secondary: "#E5EDF5",
+    accent: "#8FA5BC",
+    text: "#2C3E50"
+  },
+  softBrown: {
+    primary: "#B49F89",
+    secondary: "#F5E6D3",
+    accent: "#DEC4A7",
+    text: "#5E4B3B"
+  },
+  roseDust: {
+    primary: "#C5AFA0",
+    secondary: "#F2E9E4",
+    accent: "#E6D1C5",
+    text: "#8C7267"
+  },
+  oliveGreen: {
+    primary: "#A3B18A",
+    secondary: "#E9EDe4",
+    accent: "#CAD2C5",
+    text: "#52573D"
+  }
+};
+
+export const weddingConfig = {
+  couple: {
+    bride: {
+      name: "Nama Lengkap Pengantin Wanita",
+      fullName: "R",
+      parents: "Putri dari Bpk ... dan Ibu ...",
+      photo: "/images/couple/bride.jpg",
+      about: "Deskripsi singkat tentang mempelai wanita",
+      socialMedia: {
+        instagram: "@username",
+        facebook: "url",
+        twitter: "url"
+      }
+    },
+    groom: {
+      name: "Nama Lengkap Pengantin Pria",
+      fullName: "R",
+      parents: "Putra dari Bpk ... dan Ibu ...",
+      photo: "/images/couple/groom.jpg",
+      about: "Deskripsi singkat tentang mempelai pria",
+      socialMedia: {
+        instagram: "@username",
+        facebook: "url",
+        twitter: "url"
+      }
+    },
+    firstMeet: "Cerita singkat pertama bertemu",
+    loveStory: [
+      {
+        date: "01 January 2022",
+        title: "Pertama Bertemu",
+        description: "Cerita detail",
+        image: "/images/story/first-meet.jpg"
+      },
+      // ... more story timeline
+    ]
+  },
+  event: {
+    akad: {
+      date: "2024-06-01",
+      time: "08:00",
+      venue: "Nama Tempat",
+      address: "Alamat Lengkap",
+      mapLink: "Google Maps Link",
+      dresscode: "Putih / Broken White",
+      additional_info: "Info tambahan tentang acara akad"
+    },
+    reception: {
+      date: "2024-06-01",
+      time: "11:00",
+      venue: "Nama Tempat",
+      address: "Alamat Lengkap",
+      mapLink: "Google Maps Link",
+      dresscode: "Sage Green / Earthy Colors",
+      additional_info: "Info tambahan tentang acara resepsi"
+    }
+  },
+  digitalEnvelope: {
+    banks: [
+      {
+        name: "BCA",
+        accountNumber: "1234567890",
+        accountHolder: "NAMA PEMILIK"
+      },
+      {
+        name: "Mandiri",
+        accountNumber: "0987654321",
+        accountHolder: "NAMA PEMILIK"
+      }
+    ],
+    eWallets: [
+      {
+        name: "GoPay",
+        number: "081234567890",
+        qrCode: "/images/qr/gopay.png"
+      },
+      {
+        name: "DANA",
+        number: "081234567890",
+        qrCode: "/images/qr/dana.png"
+      }
+    ]
+  },
+  gallery: {
+    // prewedding: [
+    //   {
+    //     url: "/images/gallery/pre1.jpg",
+    //     caption: "Caption foto"
+    //   }
+    //   // ... more photos
+    // ],
+    // engagement: [
+    //   {
+    //     url: "/images/gallery/eng1.jpg",
+    //     caption: "Caption foto"
+    //   }
+    //   // ... more photos
+    // ]
+    // prewedding: Array(6).fill(null).map((_, i) => ({
+    //   url: `https://via.placeholder.com/800x600.jpg?text=Pre+Wedding+${i + 1}`,
+    //   caption: `Pre Wedding Photo ${i + 1}`
+    // })),
+    // engagement: Array(4).fill(null).map((_, i) => ({
+    //   url: `https://via.placeholder.com/800x600.jpg?text=Engagement+${i + 1}`,
+    //   caption: `Engagement Photo ${i + 1}`
+    // }))
+    prewedding: Array(6).fill(null).map((_, i) => ({
+      url: `/images/gallery/pre${i + 1}.jpg`,
+      caption: `Pre Wedding Photo ${i + 1}`
+    })),
+    engagement: Array(4).fill(null).map((_, i) => ({
+      url: `/images/gallery/eng${i + 1}.jpg`,
+      caption: `Engagement Photo ${i + 1}`
+    }))
+
+  },
+  music: {
+    tracks: [
+      {
+        src: "/music/song1.mp3",
+        title: "Lagu 1",
+        artist: "Artis 1"
+      },
+      {
+        src: "/music/song2.mp3",
+        title: "Lagu 2",
+        artist: "Artis 2"
+      }
+    ]
+  },
+  guestBook: {
+    enabled: true,
+    moderationEnabled: true
+  },
+  rsvp: {
+    enabled: true,
+    deadline: "2024-05-20",
+    whatsappNumber: "081234567890",
+    additionalFields: [
+      {
+        name: "jumlah_tamu",
+        label: "Jumlah Tamu",
+        type: "number"
+      },
+      {
+        name: "kehadiran",
+        label: "Konfirmasi Kehadiran",
+        type: "select",
+        options: ["Hadir", "Tidak Hadir", "Masih Ragu"]
+      }
+    ]
+  },
+  specialFeatures: {
+    countdownTimer: true,
+    photoBoothFrame: true,
+    virtualGuestBook: true,
+    liveStreaming: {
+      enabled: true,
+      platform: "YouTube",
+      link: "https://youtube.com/live/..."
+    }
+  },
+  giftRegistry: [
+    {
+      title: "Amazon Registry",
+      description: "Find our wishlist on Amazon",
+      image: "/images/registry/amazon.png",
+      link: "https://amazon.com/registry/..."
+    },
+    {
+      title: "Target Registry",
+      description: "Shop our registry at Target",
+      image: "/images/registry/target.png",
+      link: "https://target.com/registry/..."
+    },
+    // Add more registry items as needed
+  ]
+}

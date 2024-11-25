@@ -1,0 +1,10 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "environment": {
+    "NEXT_PUBLIC_BASE_URL": "https://wedding-febryan.vercel.app"
+  }
+} 

@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #4F6F8F;
+  --secondary-color: #E5EDF5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-gray-50;
+}
+
+.font-serif {
+  font-family: var(--font-secondary), serif;
+}
+
+.font-sans {
+  font-family: var(--font-primary), sans-serif;
+}
+
+/* Add custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
