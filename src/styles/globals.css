@@ -32,3 +32,192 @@ body {
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
+
+/* Animasi rotasi frame */
+@keyframes rotateFrame {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.rotating-frame {
+  animation: rotateFrame 30s linear infinite;
+}
+
+/* Animasi frame foto yang lebih halus */
+@keyframes pulseFrame {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.02); opacity: 0.9; }
+}
+
+.photo-frame-animation {
+  animation: pulseFrame 4s ease-in-out infinite;
+}
+
+/* Dekorasi bunga untuk pengantin wanita */
+.bride-flowers::before,
+.bride-flowers::after {
+  content: '';
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.bride-flowers::before {
+  width: 100px;
+  height: 100px;
+  top: -20px;
+  left: -20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 10C55 25 70 30 85 35C70 40 55 45 50 60C45 45 30 40 15 35C30 30 45 25 50 10Z' fill='var(--theme-accent)' opacity='0.8'/%3E%3C/svg%3E");
+  transform: rotate(-45deg);
+  animation: floatFlower 5s ease-in-out infinite;
+}
+
+.bride-flowers::after {
+  width: 80px;
+  height: 80px;
+  bottom: -10px;
+  right: -10px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 10C55 25 70 30 85 35C70 40 55 45 50 60C45 45 30 40 15 35C30 30 45 25 50 10Z' fill='var(--theme-primary)' opacity='0.6'/%3E%3C/svg%3E");
+  transform: rotate(45deg);
+  animation: floatFlower 5s ease-in-out infinite reverse;
+}
+
+/* Dekorasi kelopak bunga tambahan */
+.bride-petals::before,
+.bride-petals::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: 
+    radial-gradient(circle at 50% 50%, 
+      var(--theme-accent) 0%, 
+      color-mix(in srgb, var(--theme-accent) 50%, transparent) 60%, 
+      transparent 70%);
+  filter: blur(1px);
+  animation: petalFloat 4s ease-in-out infinite alternate;
+}
+
+.bride-petals::before {
+  top: 30%;
+  left: -30px;
+}
+
+.bride-petals::after {
+  bottom: 30%;
+  right: -30px;
+}
+
+/* Dekorasi untuk pengantin pria */
+.groom-ornaments::before,
+.groom-ornaments::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 2px solid var(--theme-primary);
+  transition: all 0.3s ease;
+}
+
+.groom-ornaments::before {
+  top: -20px;
+  right: -20px;
+  border-radius: 0 20px 0 20px;
+  transform: rotate(-15deg);
+  border-color: var(--theme-accent);
+}
+
+.groom-ornaments::after {
+  bottom: -20px;
+  left: -20px;
+  border-radius: 20px 0 20px 0;
+  transform: rotate(-15deg);
+}
+
+/* Detail tambahan untuk pengantin pria */
+.groom-details::before,
+.groom-details::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: 
+    radial-gradient(circle at 50% 50%, 
+      var(--theme-primary) 0%, 
+      color-mix(in srgb, var(--theme-primary) 30%, transparent) 60%, 
+      transparent 70%);
+  filter: blur(1px);
+  animation: detailPulse 3s ease-in-out infinite alternate;
+}
+
+.groom-details::before {
+  top: 20%;
+  right: -25px;
+}
+
+.groom-details::after {
+  bottom: 20%;
+  left: -25px;
+}
+
+@keyframes floatFlower {
+  0%, 100% { 
+    transform: rotate(-45deg) translate(0, 0); 
+    filter: hue-rotate(0deg);
+  }
+  50% { 
+    transform: rotate(-40deg) translate(-5px, -5px);
+    filter: hue-rotate(10deg);
+  }
+}
+
+@keyframes petalFloat {
+  0% { 
+    transform: scale(1) rotate(0deg); 
+    opacity: 0.7;
+    filter: hue-rotate(0deg);
+  }
+  100% { 
+    transform: scale(1.2) rotate(10deg); 
+    opacity: 0.5;
+    filter: hue-rotate(10deg);
+  }
+}
+
+@keyframes detailPulse {
+  0% { 
+    transform: scale(1); 
+    opacity: 0.7;
+    filter: hue-rotate(0deg);
+  }
+  100% { 
+    transform: scale(1.1); 
+    opacity: 0.5;
+    filter: hue-rotate(10deg);
+  }
+}
+
+/* Hover effects dengan warna dinamis */
+div:hover .bride-flowers::before {
+  transform: rotate(-50deg) scale(1.1);
+  filter: brightness(1.1) hue-rotate(5deg);
+}
+
+div:hover .bride-flowers::after {
+  transform: rotate(50deg) scale(1.1);
+  filter: brightness(1.1) hue-rotate(-5deg);
+}
+
+div:hover .groom-ornaments::before {
+  transform: rotate(-20deg) scale(1.1);
+  border-color: var(--theme-accent);
+  filter: brightness(1.1);
+}
+
+div:hover .groom-ornaments::after {
+  transform: rotate(-10deg) scale(1.1);
+  border-color: var(--theme-primary);
+  filter: brightness(1.1);
+}

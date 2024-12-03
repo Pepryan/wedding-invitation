@@ -3,7 +3,10 @@ export interface WeddingConfig {
     bride: {
       name: string;
       fullName: string;
-      photo: string;
+      photo: {
+        url: string;
+        aspectRatio: "1:1" | "portrait";
+      };
       parents: string;
       about: string;
       socialMedia: {
@@ -15,7 +18,10 @@ export interface WeddingConfig {
     groom: {
       name: string;
       fullName: string;
-      photo: string;
+      photo: {
+        url: string;
+        aspectRatio: "1:1" | "portrait";
+      };
       parents: string;
       about: string;
       socialMedia: {
@@ -141,8 +147,11 @@ export const weddingConfig = {
     bride: {
       name: "Nama Lengkap Pengantin Wanita",
       fullName: "R",
+      photo: {
+        url: "wedding-invitation/images/couple/bride.webp",
+        aspectRatio: "portrait"
+      },
       parents: "Putri dari Bpk ... dan Ibu ...",
-      photo: "wedding-invitation/images/couple/bride.webp",
       about: "Deskripsi singkat tentang mempelai wanita",
       socialMedia: {
         instagram: "@username",
@@ -153,8 +162,11 @@ export const weddingConfig = {
     groom: {
       name: "Nama Lengkap Pengantin Pria",
       fullName: "R",
+      photo: {
+        url: "wedding-invitation/images/couple/groom.webp",
+        aspectRatio: "portrait"
+      },
       parents: "Putra dari Bpk ... dan Ibu ...",
-      photo: "wedding-invitation/images/couple/groom.webp",
       about: "Deskripsi singkat tentang mempelai pria",
       socialMedia: {
         instagram: "@username",
