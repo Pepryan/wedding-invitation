@@ -11,11 +11,27 @@ import RSVP from '@/components/sections/RSVP';
 import LiveStreaming from '@/components/sections/LiveStreaming';
 // import ShareButton from '@/components/features/ShareButton';
 import GiftRegistry from '@/components/sections/GiftRegistry';
-import { useEffect } from 'react';
+import { ThemeProvider } from '@/contexts/ThemeContext';
+import CountdownTimer from '@/components/features/CountdownTimer';
+import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useRouter } from 'next/router';
 
 const Home: NextPage = () => {
+  const router = useRouter();
+  const [guestName, setGuestName] = useState<string>('');
+
+  useEffect(() => {
+    if (router.isReady) {
+      // Get the 'to' parameter from URL and decode it
+      const guest = router.query.to;
+      if (typeof guest === 'string') {
+        setGuestName(decodeURIComponent(guest));
+      }
+    }
+  }, [router.isReady, router.query]);
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -24,19 +40,21 @@ const Home: NextPage = () => {
   }, []);
 
   return (
-    <MainLayout>
-      <Hero />
-      <CoupleProfile />
-      <StoryTimeline />
-      <EventDetails />
-      <Gallery />
-      <LiveStreaming />
-      <DigitalEnvelope />
-      <GuestBook />
-      <RSVP />
-      <GiftRegistry />
-      {/* <ShareButton /> */}
-    </MainLayout>
+    <ThemeProvider>
+      <MainLayout guestName={guestName}>
+        <Hero guestName={guestName} />
+        <CoupleProfile />
+        <StoryTimeline />
+        <CountdownTimer />
+        <EventDetails />
+        <Gallery />
+        <LiveStreaming />
+        <DigitalEnvelope />
+        <GuestBook />
+        <RSVP guestName={guestName} />
+        <GiftRegistry />
+      </MainLayout>
+    </ThemeProvider>
   );
 };
 

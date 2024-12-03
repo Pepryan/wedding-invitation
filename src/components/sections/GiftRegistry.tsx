@@ -4,6 +4,10 @@ import { weddingConfig } from '@/config/wedding-config';
 import { activeTheme } from '@/config/theme-config';
 
 export default function GiftRegistry() {
+  if (!weddingConfig.specialFeatures.giftRegistry.enabled) {
+    return null;
+  }
+
   return (
     <section className="py-20" style={{ backgroundColor: activeTheme.background }}>
       <div className="container mx-auto px-4">
@@ -22,7 +26,7 @@ export default function GiftRegistry() {
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {weddingConfig.giftRegistry.map((registry, index) => (
+          {weddingConfig.specialFeatures.giftRegistry.items.map((registry, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}

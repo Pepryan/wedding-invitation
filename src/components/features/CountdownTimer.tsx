@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { weddingConfig } from '@/config/wedding-config';
+import { activeTheme } from '@/config/theme-config';
 
 interface TimeLeft {
   days: number;
@@ -37,25 +38,58 @@ export default function CountdownTimer() {
     return () => clearInterval(timer);
   }, []);
 
+  const timeUnits = [
+    { label: 'days', value: timeLeft.days },
+    { label: 'hours', value: timeLeft.hours },
+    { label: 'minutes', value: timeLeft.minutes },
+    { label: 'seconds', value: timeLeft.seconds },
+  ];
+
+  if (!weddingConfig.specialFeatures.countdownTimer) {
+    return null;
+  }
+
   return (
-    <div className="grid grid-cols-4 gap-4 max-w-xl mx-auto">
-      {Object.entries(timeLeft).map(([unit, value]) => (
-        <motion.div
-          key={unit}
+    <div className="relative py-16" style={{ backgroundColor: activeTheme.background }}>
+      <div className="absolute inset-0 opacity-10" style={{ 
+        backgroundImage: 'url("wedding-invitation/images/pattern/subtle-pattern.jpg")',
+        backgroundRepeat: 'repeat' 
+      }} />
+      
+      <div className="container mx-auto px-4">
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center"
+          className="text-center text-2xl md:text-3xl font-serif mb-8"
+          style={{ color: activeTheme.text }}
         >
-          <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-lg">
-            <div className="text-3xl font-bold" style={{ color: '#4F6F8F' }}>
-              {value}
-            </div>
-            <div className="text-sm text-gray-600 capitalize">
-              {unit}
-            </div>
-          </div>
-        </motion.div>
-      ))}
+          Counting Down to Our Special Day
+        </motion.h2>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          {timeUnits.map(({ label, value }, index) => (
+            <motion.div
+              key={label}
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.1 }}
+              className="relative"
+            >
+              <div className="bg-white rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300"
+                   style={{ borderColor: activeTheme.accent, borderWidth: '1px' }}>
+                <div className="text-4xl md:text-5xl font-bold mb-2" 
+                     style={{ color: activeTheme.primary }}>
+                  {value.toString().padStart(2, '0')}
+                </div>
+                <div className="text-sm md:text-base capitalize" 
+                     style={{ color: activeTheme.text }}>
+                  {label}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

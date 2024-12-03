@@ -3,9 +3,13 @@ import { motion } from 'framer-motion';
 import { weddingConfig } from '@/config/wedding-config';
 import { activeTheme } from '@/config/theme-config';
 
-export default function RSVP() {
+interface RSVPProps {
+  guestName?: string;
+}
+
+export default function RSVP({ guestName }: RSVPProps) {
   const [formData, setFormData] = useState({
-    name: '',
+    name: guestName || '',
     attendance: '',
     numberOfGuests: 1,
     wishes: '',

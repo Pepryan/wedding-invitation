@@ -1,17 +1,21 @@
 import { motion } from 'framer-motion';
 import { weddingConfig } from '@/config/wedding-config';
 
-export default function Hero() {
+interface HeroProps {
+  guestName?: string;
+}
+
+export default function Hero({ guestName }: HeroProps) {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: 'url(/images/background/hero-bg.jpg)',
+          backgroundImage: 'url(wedding-invitation/images/background/hero-bg.jpg)',
         }}
       >
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
       {/* Content */}
@@ -22,6 +26,19 @@ export default function Hero() {
           transition={{ duration: 1 }}
           className="bg-white/10 backdrop-blur-md p-8 rounded-2xl"
         >
+          {guestName && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              className="text-white/90 text-xl mb-6"
+            >
+              Dear {guestName},
+              <br />
+              You are invited to our wedding.
+            </motion.p>
+          )}
+          
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

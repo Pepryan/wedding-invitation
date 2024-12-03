@@ -85,18 +85,21 @@ export interface WeddingConfig {
     countdownTimer: boolean;
     photoBoothFrame: boolean;
     virtualGuestBook: boolean;
+    giftRegistry: {
+      enabled: boolean;
+      items: Array<{
+        title: string;
+        description?: string;
+        image: string;
+        link?: string;
+      }>;
+    };
     liveStreaming: {
       enabled: boolean;
       platform: string;
       link: string;
     };
   };
-  giftRegistry: Array<{
-    title: string;
-    description?: string;
-    image: string;
-    link?: string;
-  }>;
 }
 
 
@@ -139,7 +142,7 @@ export const weddingConfig = {
       name: "Nama Lengkap Pengantin Wanita",
       fullName: "R",
       parents: "Putri dari Bpk ... dan Ibu ...",
-      photo: "/images/couple/bride.jpg",
+      photo: "wedding-invitation/images/couple/bride.jpg",
       about: "Deskripsi singkat tentang mempelai wanita",
       socialMedia: {
         instagram: "@username",
@@ -151,7 +154,7 @@ export const weddingConfig = {
       name: "Nama Lengkap Pengantin Pria",
       fullName: "R",
       parents: "Putra dari Bpk ... dan Ibu ...",
-      photo: "/images/couple/groom.jpg",
+      photo: "wedding-invitation/images/couple/groom.jpg",
       about: "Deskripsi singkat tentang mempelai pria",
       socialMedia: {
         instagram: "@username",
@@ -165,14 +168,14 @@ export const weddingConfig = {
         date: "01 January 2022",
         title: "Pertama Bertemu",
         description: "Cerita detail",
-        image: "/images/story/first-meet.jpg"
+        image: "wedding-invitation/images/story/first-meet.jpg"
       },
       // ... more story timeline
     ]
   },
   event: {
     akad: {
-      date: "2024-06-01",
+      date: "2300-06-01",
       time: "08:00",
       venue: "Nama Tempat",
       address: "Alamat Lengkap",
@@ -181,7 +184,7 @@ export const weddingConfig = {
       additional_info: "Info tambahan tentang acara akad"
     },
     reception: {
-      date: "2024-06-01",
+      date: "2300-06-01",
       time: "11:00",
       venue: "Nama Tempat",
       address: "Alamat Lengkap",
@@ -207,12 +210,12 @@ export const weddingConfig = {
       {
         name: "GoPay",
         number: "081234567890",
-        qrCode: "/images/qr/gopay.png"
+        qrCode: "wedding-invitation/images/qr/gopay.jpg"
       },
       {
         name: "DANA",
         number: "081234567890",
-        qrCode: "/images/qr/dana.png"
+        qrCode: "wedding-invitation/images/qr/dana.png"
       }
     ]
   },
@@ -260,25 +263,27 @@ export const weddingConfig = {
     countdownTimer: true,
     photoBoothFrame: true,
     virtualGuestBook: true,
+    giftRegistry: {
+      enabled: false,
+      items: [
+        {
+          title: "Amazon Registry",
+          description: "Find our wishlist on Amazon",
+          image: "/images/registry/amazon.png",
+          link: "https://amazon.com/registry/..."
+        },
+        {
+          title: "Target Registry",
+          description: "Shop our registry at Target",
+          image: "/images/registry/target.png",
+          link: "https://target.com/registry/..."
+        }
+      ]
+    },
     liveStreaming: {
-      enabled: true,
+      enabled: false,
       platform: "YouTube",
       link: "https://youtube.com/live/..."
     }
-  },
-  giftRegistry: [
-    {
-      title: "Amazon Registry",
-      description: "Find our wishlist on Amazon",
-      image: "/images/registry/amazon.png",
-      link: "https://amazon.com/registry/..."
-    },
-    {
-      title: "Target Registry",
-      description: "Shop our registry at Target",
-      image: "/images/registry/target.png",
-      link: "https://target.com/registry/..."
-    },
-    // Add more registry items as needed
-  ]
+  }
 }

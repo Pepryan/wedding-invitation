@@ -51,3 +51,4 @@ export const themes = {
 };
 
 export const activeTheme = themes.dustyBlue; // Default theme
+// export const activeTheme = themes.modern; // Default theme

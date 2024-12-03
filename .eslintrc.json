@@ -5,6 +5,8 @@
     "@typescript-eslint/no-unused-vars": "error",
     "react-hooks/exhaustive-deps": "warn",
     "@typescript-eslint/no-empty-interface": "error",
-    "react/no-unescaped-entities": "off"
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-img-element": "off",
+    "@typescript-eslint/no-unused-vars": ["error", { "varsIgnorePattern": "^_" }]
   }
 }
