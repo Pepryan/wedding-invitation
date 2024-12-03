@@ -4,64 +4,71 @@ import { weddingConfig } from '@/config/wedding-config';
 import { Instagram, Facebook, Twitter } from '@/components/shared/SocialIcons';
 import { activeTheme } from '@/config/theme-config';
 
+// Add this type definition for the CSS variables
+type ThemeStyle = React.CSSProperties & {
+  '--theme-primary': string;
+  '--theme-accent': string;
+}
+
 // Komponen untuk foto dengan aspect ratio yang berbeda
 const PhotoContainer = ({ photo, name, aspectRatio, isBride }: { 
   photo: string; 
   name: string; 
   aspectRatio: "1:1" | "portrait";
   isBride: boolean;
-}) => (
-  <div className={`relative mx-auto mb-6 ${
-    aspectRatio === "1:1" 
-      ? "w-72 h-72 md:w-80 md:h-80" 
-      : "w-72 h-96 md:w-80 md:h-[28rem]"
-  }`}>
-    {/* Main circular frame */}
-    <div className={`absolute inset-0 rounded-full border-2 border-primary
-      before:absolute before:inset-[-12px] before:rounded-full before:border-2 before:border-dashed 
-      before:border-accent
-      after:absolute after:inset-[-24px] after:rounded-full after:border-2 
-      after:border-primary/30
-      photo-frame-animation`}
-      style={{
-        '--theme-primary': activeTheme.primary,
-        '--theme-accent': activeTheme.accent,
-      } as any}>
-    </div>
-    
-    {/* Floral decorations */}
-    <div className={`absolute inset-[-40px] ${isBride ? 'bride-flowers' : 'groom-ornaments'}`}
-      style={{
-        '--theme-primary': activeTheme.primary,
-        '--theme-accent': activeTheme.accent,
-      } as any}></div>
-    
-    {/* Additional floral elements */}
-    <div className={`absolute inset-[-20px] ${isBride ? 'bride-petals' : 'groom-details'}`}
-      style={{
-        '--theme-primary': activeTheme.primary,
-        '--theme-accent': activeTheme.accent,
-      } as any}></div>
-    
-    {/* Photo container */}
-    <div className="absolute inset-4 rounded-full overflow-hidden 
-      shadow-[0_0_30px_rgba(0,0,0,0.15)] 
-      transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(0,0,0,0.2)]
-      before:absolute before:inset-0 before:z-10 before:rounded-full 
-      before:shadow-[inset_0_0_20px_rgba(0,0,0,0.1)]">
-      <div className="relative w-full h-full">
-        <Image
-          src={photo}
-          alt={name}
-          fill
-          className={`object-cover rounded-full transform transition-all duration-300 
-            hover:scale-110
-            ${aspectRatio === "portrait" ? "object-top" : "object-center"}`}
-        />
+}) => {
+  // Create the style object once to avoid repetition
+  const themeStyle: ThemeStyle = {
+    '--theme-primary': activeTheme.primary,
+    '--theme-accent': activeTheme.accent,
+  };
+
+  return (
+    <div className={`relative mx-auto mb-6 ${
+      aspectRatio === "1:1" 
+        ? "w-72 h-72 md:w-80 md:h-80" 
+        : "w-72 h-96 md:w-80 md:h-[28rem]"
+    }`}>
+      {/* Main circular frame */}
+      <div className={`absolute inset-0 rounded-full border-2 border-primary
+        before:absolute before:inset-[-12px] before:rounded-full before:border-2 before:border-dashed 
+        before:border-accent
+        after:absolute after:inset-[-24px] after:rounded-full after:border-2 
+        after:border-primary/30
+        photo-frame-animation`}
+        style={themeStyle}>
+      </div>
+      
+      {/* Floral decorations */}
+      <div className={`absolute inset-[-40px] ${isBride ? 'bride-flowers' : 'groom-ornaments'}`}
+        style={themeStyle}>
+      </div>
+      
+      {/* Additional floral elements */}
+      <div className={`absolute inset-[-20px] ${isBride ? 'bride-petals' : 'groom-details'}`}
+        style={themeStyle}>
+      </div>
+      
+      {/* Photo container */}
+      <div className="absolute inset-4 rounded-full overflow-hidden 
+        shadow-[0_0_30px_rgba(0,0,0,0.15)] 
+        transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(0,0,0,0.2)]
+        before:absolute before:inset-0 before:z-10 before:rounded-full 
+        before:shadow-[inset_0_0_20px_rgba(0,0,0,0.1)]">
+        <div className="relative w-full h-full">
+          <Image
+            src={photo}
+            alt={name}
+            fill
+            className={`object-cover rounded-full transform transition-all duration-300 
+              hover:scale-110
+              ${aspectRatio === "portrait" ? "object-top" : "object-center"}`}
+          />
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+}
 
 export default function CoupleProfile() {
   return (
