@@ -222,10 +222,37 @@ export const weddingConfig = {
   gallery: {
     prewedding: [
       {
-        url: '/wedding-invitation/images/gallery/pre1.jpg',
-        caption: 'Pre Wedding 1'
+        url: '/images/gallery/prewedding-1.jpg',
+        caption: 'First Date at the Coffee Shop'
       },
-      // ...
+      {
+        url: '/images/gallery/prewedding-2.jpg',
+        caption: 'Weekend Gateway to the Beach'
+      },
+      {
+        url: '/images/gallery/prewedding-3.jpg',
+        caption: 'Hiking Adventure Together'
+      },
+      {
+        url: '/images/gallery/moment-1.jpg',
+        caption: 'Our First Concert'
+      },
+      {
+        url: '/images/gallery/moment-2.jpg',
+        caption: 'Birthday Celebration'
+      },
+      {
+        url: '/images/gallery/moment-3.jpg',
+        caption: 'Christmas Together'
+      },
+      {
+        url: '/images/gallery/prewedding-4.jpg',
+        caption: 'Garden Photoshoot'
+      },
+      {
+        url: '/images/gallery/prewedding-5.jpg',
+        caption: 'Sunset at the Beach'
+      }
     ]
   },
   music: {

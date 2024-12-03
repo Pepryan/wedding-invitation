@@ -6,6 +6,9 @@ const nextConfig = {
   },
   basePath: '/wedding-invitation',
   assetPrefix: '/wedding-invitation/',
+  experimental: {
+    disableOptimizedLoading: true,
+  }
 }
 
 module.exports = nextConfig 

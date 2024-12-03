@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app';
 import { Playfair_Display, Montserrat, Great_Vibes } from 'next/font/google';
 import { weddingConfig } from '@/config/wedding-config';
 import Head from 'next/head';
+import { useEffect } from 'react';
 
 const primary = Montserrat({
   subsets: ['latin'],
@@ -26,6 +27,17 @@ const decorative = Great_Vibes({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    // Handle service worker unregistration
+    if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for(let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  }, []);
+
   return (
     <>
       <Head>

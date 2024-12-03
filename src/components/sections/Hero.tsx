@@ -34,8 +34,6 @@ export default function Hero({ guestName }: HeroProps) {
               className="text-white/90 text-xl mb-6"
             >
               Dear {guestName},
-              <br />
-              You are invited to our wedding.
             </motion.p>
           )}
           
@@ -45,7 +43,7 @@ export default function Hero({ guestName }: HeroProps) {
             transition={{ delay: 0.5 }}
             className="text-white/80 text-xl mb-4"
           >
-            We Are Getting Married
+              You are invited to our wedding.
           </motion.p>
 
           <motion.h1

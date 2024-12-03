@@ -38,9 +38,10 @@ export default function MainLayout({ children, guestName }: MainLayoutProps) {
         <div className="relative z-10 text-center p-8 max-w-xl mx-auto">
           <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl">
             <h3 className="text-xl text-white/80 mb-4 font-light">
-              {guestName ? `Dear ${guestName},` : 'The Wedding of'}
+              {guestName ? `Dear ${guestName},` : 'You are invited to our wedding.'}
             </h3>
             <h1 className="text-4xl md:text-5xl font-serif text-white mb-8">
+              {guestName ? `We are getting married!` : `${weddingConfig.couple.bride.name} & ${weddingConfig.couple.groom.name}`}<br /><br />
               {weddingConfig.couple.bride.name} & {weddingConfig.couple.groom.name}
             </h1>
             <motion.button

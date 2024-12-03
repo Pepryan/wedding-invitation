@@ -4,10 +4,13 @@ import { motion } from 'framer-motion';
 import { weddingConfig } from '@/config/wedding-config';
 import { activeTheme } from '@/config/theme-config';
 import { useRouter } from 'next/router';
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 export default function Gallery() {
   const { basePath } = useRouter();
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [photoIndex, setPhotoIndex] = useState(0);
 
   const container = {
     hidden: { opacity: 0 },
@@ -23,6 +26,11 @@ export default function Gallery() {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0 }
   };
+
+  const slides = weddingConfig.gallery.prewedding.map(photo => ({
+    src: `${basePath}${photo.url}`,
+    alt: photo.caption,
+  }));
 
   return (
     <section className="py-20" style={{ backgroundColor: activeTheme.background }}>
@@ -51,7 +59,10 @@ export default function Gallery() {
               key={index}
               variants={item}
               className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group"
-              onClick={() => setSelectedImage(photo.url)}
+              onClick={() => {
+                setPhotoIndex(index);
+                setIsOpen(true);
+              }}
             >
               <Image
                 src={`${basePath}${photo.url}`}
@@ -67,32 +78,14 @@ export default function Gallery() {
             </motion.div>
           ))}
         </motion.div>
-      </div>
 
-      {/* Lightbox */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
-          onClick={() => setSelectedImage(null)}
-        >
-          <div className="relative max-w-5xl w-full h-[80vh]">
-            <Image
-              src={selectedImage}
-              alt="Gallery image"
-              fill
-              className="object-contain"
-            />
-            <button
-              className="absolute top-4 right-4 text-white hover:text-gray-300"
-              onClick={() => setSelectedImage(null)}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      )}
+        <Lightbox
+          open={isOpen}
+          close={() => setIsOpen(false)}
+          index={photoIndex}
+          slides={slides}
+        />
+      </div>
     </section>
   );
 }
