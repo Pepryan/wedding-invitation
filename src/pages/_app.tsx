@@ -45,8 +45,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="description" content="We are getting married! Join us to celebrate our special day." />
         <meta property="og:title" content={`The Wedding of ${weddingConfig.couple.bride.name} & ${weddingConfig.couple.groom.name}`} />
         <meta property="og:description" content="We are getting married! Join us to celebrate our special day." />
-        <meta property="og:image" content="/images/og-image.jpg" />
+        <meta property="og:image" content="/images/og-image.webp" />
         <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </Head>
       <main className={`${primary.variable} ${secondary.variable} ${decorative.variable} font-sans`}>
         <Component {...pageProps} />

@@ -33,7 +33,7 @@ export default function MainLayout({ children, guestName }: MainLayoutProps) {
   if (!hasInteracted) {
     return (
       <div className="fixed inset-0 flex items-center justify-center min-h-screen bg-cover bg-center"
-           style={{ backgroundImage: 'url(wedding-invitation/images/background/hero-bg.jpg)' }}>
+           style={{ backgroundImage: 'url(wedding-invitation/images/background/hero-bg.webp)' }}>
         <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
         <div className="relative z-10 text-center p-8 max-w-xl mx-auto">
           <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl">
@@ -62,7 +62,7 @@ export default function MainLayout({ children, guestName }: MainLayoutProps) {
   return (
     <>
       <MusicPlayer isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
-      <div className="relative">
+      <div className="relative overflow-x-hidden">
         {children}
         <Footer />
       </div>

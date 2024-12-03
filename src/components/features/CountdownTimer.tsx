@@ -52,7 +52,7 @@ export default function CountdownTimer() {
   return (
     <div className="relative py-16" style={{ backgroundColor: activeTheme.background }}>
       <div className="absolute inset-0 opacity-10" style={{ 
-        backgroundImage: 'url("wedding-invitation/images/pattern/subtle-pattern.jpg")',
+        backgroundImage: 'url("wedding-invitation/images/pattern/subtle-pattern.webp")',
         backgroundRepeat: 'repeat' 
       }} />
       

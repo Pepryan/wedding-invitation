@@ -27,5 +27,5 @@ export interface BankAccount {
 export interface EWallet {
   name: string;
   number: string;
-  qrCode?: string;
+  logo: string;
 } 

@@ -12,7 +12,7 @@ export default function Hero({ guestName }: HeroProps) {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: 'url(wedding-invitation/images/background/hero-bg.jpg)',
+          backgroundImage: 'url(wedding-invitation/images/background/hero-bg.webp)',
         }}
       >
         <div className="absolute inset-0 bg-black/40"></div>

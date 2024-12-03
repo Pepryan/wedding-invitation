@@ -72,11 +72,11 @@ export default function DigitalEnvelope() {
                 <div key={index} className="p-4 border rounded-lg hover:border-gray-300 transition-colors">
                   <p className="font-medium text-lg mb-2">{wallet.name}</p>
                   <p className="font-mono text-gray-600 mb-2">{wallet.number}</p>
-                  {wallet.qrCode && (
-                    <div className="relative w-40 h-40 mx-auto mb-3">
+                  {wallet.logo && (
+                    <div className="relative w-20 h-20 mx-auto mb-3">
                       <Image
-                        src={wallet.qrCode}
-                        alt={`${wallet.name} QR Code`}
+                        src={wallet.logo}
+                        alt={`${wallet.name} Logo`}
                         fill
                         className="object-contain"
                       />

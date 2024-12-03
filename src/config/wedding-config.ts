@@ -69,7 +69,7 @@ export interface WeddingConfig {
     eWallets: Array<{
       name: string;
       number: string;
-      qrCode?: string;
+      logo: string;
     }>;
   };
   rsvp: {
@@ -142,7 +142,7 @@ export const weddingConfig = {
       name: "Nama Lengkap Pengantin Wanita",
       fullName: "R",
       parents: "Putri dari Bpk ... dan Ibu ...",
-      photo: "wedding-invitation/images/couple/bride.jpg",
+      photo: "wedding-invitation/images/couple/bride.webp",
       about: "Deskripsi singkat tentang mempelai wanita",
       socialMedia: {
         instagram: "@username",
@@ -154,7 +154,7 @@ export const weddingConfig = {
       name: "Nama Lengkap Pengantin Pria",
       fullName: "R",
       parents: "Putra dari Bpk ... dan Ibu ...",
-      photo: "wedding-invitation/images/couple/groom.jpg",
+      photo: "wedding-invitation/images/couple/groom.webp",
       about: "Deskripsi singkat tentang mempelai pria",
       socialMedia: {
         instagram: "@username",
@@ -168,7 +168,7 @@ export const weddingConfig = {
         date: "01 January 2022",
         title: "Pertama Bertemu",
         description: "Cerita detail",
-        image: "wedding-invitation/images/story/first-meet.jpg"
+        image: "wedding-invitation/images/story/first-meet.webp"
       },
       // ... more story timeline
     ]
@@ -204,55 +204,72 @@ export const weddingConfig = {
         name: "Mandiri",
         accountNumber: "0987654321",
         accountHolder: "NAMA PEMILIK"
+      },
+      {
+        name: "BNI",
+        accountNumber: "1234567890",
+        accountHolder: "NAMA PEMILIK"
+      },
+      {
+        name: "BSI",
+        accountNumber: "1234567890",
+        accountHolder: "NAMA PEMILIK"
+      },
+      {
+        name: "Bank Jago Syariah",
+        accountNumber: "1234567890",
+        accountHolder: "NAMA PEMILIK"
       }
     ],
     eWallets: [
       {
         name: "GoPay",
         number: "081234567890",
-        qrCode: "wedding-invitation/images/qr/gopay.jpg"
+        logo: "wedding-invitation/images/logos/gopay.webp"
       },
       {
-        name: "DANA",
+        name: "OVO",
         number: "081234567890",
-        qrCode: "wedding-invitation/images/qr/dana.png"
+        logo: "wedding-invitation/images/logos/ovo.webp"
+      },
+      {
+        name: "ShopeePay",
+        number: "081234567890",
+        logo: "wedding-invitation/images/logos/shopeepay.webp"
       }
     ]
   },
   gallery: {
     prewedding: [
       {
-        url: '/images/gallery/prewedding-1.jpg',
+        url: '/images/gallery/prewedding-1.webp',
         caption: 'First Date at the Coffee Shop'
       },
       {
-        url: '/images/gallery/prewedding-2.jpg',
+        url: '/images/gallery/prewedding-2.webp',
         caption: 'Weekend Gateway to the Beach'
       },
       {
-        url: '/images/gallery/prewedding-3.jpg',
+        url: '/images/gallery/prewedding-3.webp',
         caption: 'Hiking Adventure Together'
       },
       {
-        url: '/images/gallery/moment-1.jpg',
+        url: '/images/gallery/moment-1.webp',
         caption: 'Our First Concert'
       },
       {
-        url: '/images/gallery/moment-2.jpg',
+        url: '/images/gallery/moment-2.webp',
         caption: 'Birthday Celebration'
       },
       {
-        url: '/images/gallery/moment-3.jpg',
+        url: '/images/gallery/moment-3.webp',
         caption: 'Christmas Together'
       },
       {
-        url: '/images/gallery/prewedding-4.jpg',
+        url: '/images/gallery/prewedding-4.webp',
         caption: 'Garden Photoshoot'
       },
-      {
-        url: '/images/gallery/prewedding-5.jpg',
-        caption: 'Sunset at the Beach'
-      }
+      // ...
     ]
   },
   music: {
@@ -296,13 +313,13 @@ export const weddingConfig = {
         {
           title: "Amazon Registry",
           description: "Find our wishlist on Amazon",
-          image: "/images/registry/amazon.png",
+          image: "/images/registry/amazon.webp",
           link: "https://amazon.com/registry/..."
         },
         {
           title: "Target Registry",
           description: "Shop our registry at Target",
-          image: "/images/registry/target.png",
+          image: "/images/registry/target.webp",
           link: "https://target.com/registry/..."
         }
       ]
