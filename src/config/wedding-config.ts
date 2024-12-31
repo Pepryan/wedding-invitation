@@ -174,15 +174,44 @@ export const weddingConfig = {
         twitter: undefined
       }
     },
-    firstMeet: "Cerita singkat pertama bertemu",
+    firstMeet: "Our paths crossed unexpectedly, and little did we know it was the start of something beautiful",
     loveStory: [
       {
-        date: "01 January 2022",
-        title: "Pertama Bertemu",
-        description: "Cerita detail",
+        date: "January 2022",
+        title: "The First Encounter",
+        description: "We met at a mutual friend's gathering. Our eyes locked across the room, and we spent the whole night talking and laughing like we've known each other forever.",
         image: "wedding-invitation/images/story/first-meet.webp"
       },
-      // ... more story timeline
+      {
+        date: "March 2022",
+        title: "First Date",
+        description: "Our first official date at a cozy coffee shop. We discovered our shared love for art and music, and the hours flew by as we shared our dreams and aspirations.",
+        image: "wedding-invitation/images/gallery/prewedding-1.webp"
+      },
+      {
+        date: "June 2022",
+        title: "Becoming Official",
+        description: "After months of getting to know each other, we made it official. It was a simple moment, but one we'll cherish forever.",
+        image: "wedding-invitation/images/gallery/prewedding-2.webp"
+      },
+      {
+        date: "December 2022",
+        title: "First Eid al-Fitr Together",
+        description: "Celebrating our first Eid al-Fitr as a couple, sharing the joy of the holy month and strengthening our bond through faith.",
+        image: "wedding-invitation/images/gallery/moment-3.webp"
+      },
+      {
+        date: "June 2023",
+        title: "The Proposal",
+        description: "On a beautiful beach at sunset, surrounded by our closest friends and family, we promised to spend our lives together.",
+        image: "wedding-invitation/images/gallery/prewedding-3.webp"
+      },
+      {
+        date: "The Future",
+        title: "Our Journey Continues",
+        description: "We look forward to building a life full of love, laughter, and adventure together. This is just the beginning of our forever.",
+        image: "wedding-invitation/images/gallery/moment-1.webp"
+      }
     ]
   },
   event: {
@@ -255,33 +284,20 @@ export const weddingConfig = {
     prewedding: [
       {
         url: '/images/gallery/prewedding-1.webp',
-        caption: 'First Date at the Coffee Shop'
+        caption: 'Our First Date - Where It All Began'
       },
       {
         url: '/images/gallery/prewedding-2.webp',
-        caption: 'Weekend Gateway to the Beach'
+        caption: 'Beach Getaway - Our First Vacation'
       },
       {
         url: '/images/gallery/prewedding-3.webp',
-        caption: 'Hiking Adventure Together'
+        caption: 'Hiking Together - Overcoming Challenges'
       },
       {
         url: '/images/gallery/moment-1.webp',
-        caption: 'Our First Concert'
-      },
-      {
-        url: '/images/gallery/moment-2.webp',
-        caption: 'Birthday Celebration'
-      },
-      {
-        url: '/images/gallery/moment-3.webp',
-        caption: 'Christmas Together'
-      },
-      {
-        url: '/images/gallery/prewedding-4.webp',
-        caption: 'Garden Photoshoot'
-      },
-      // ...
+        caption: 'First Concert - Sharing Our Love for Music'
+      }
     ]
   },
   music: {
