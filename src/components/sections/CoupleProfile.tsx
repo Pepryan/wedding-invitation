@@ -100,13 +100,13 @@ export default function CoupleProfile() {
             <p className="text-gray-600 mb-4">{weddingConfig.couple.bride.parents}</p>
             <p className="text-gray-500 mb-4">{weddingConfig.couple.bride.about}</p>
             <div className="flex justify-center gap-4">
-              {weddingConfig.couple.bride.socialMedia.instagram && (
+              {weddingConfig.couple.bride.socialMedia?.instagram && (
                 <Instagram url={weddingConfig.couple.bride.socialMedia.instagram} />
               )}
-              {weddingConfig.couple.bride.socialMedia.facebook && (
+              {weddingConfig.couple.bride.socialMedia?.facebook && (
                 <Facebook url={weddingConfig.couple.bride.socialMedia.facebook} />
               )}
-              {weddingConfig.couple.bride.socialMedia.twitter && (
+              {weddingConfig.couple.bride.socialMedia?.twitter && (
                 <Twitter url={weddingConfig.couple.bride.socialMedia.twitter} />
               )}
             </div>

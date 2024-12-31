@@ -95,7 +95,7 @@ export default function MainLayout({ children, guestName }: MainLayoutProps) {
 
         {/* Main Content */}
         <div className="relative z-30">
-          {React.Children.map(children, (child, _index) => (
+          {React.Children.map(children, (child) => (
             <section className="relative">
               {child}
             </section>

@@ -154,7 +154,9 @@ export const weddingConfig = {
       parents: "Putri dari Bpk ... dan Ibu ...",
       about: "Deskripsi singkat tentang mempelai wanita",
       socialMedia: {
-        instagram: "https://instagram.com/"
+        instagram: "https://instagram.com/",
+        facebook: undefined,
+        twitter: undefined
       }
     },
     groom: {
@@ -167,7 +169,9 @@ export const weddingConfig = {
       parents: "Putra dari Bpk ... dan Ibu ...",
       about: "Deskripsi singkat tentang mempelai pria",
       socialMedia: {
-        instagram: "https://instagram.com/nayrbef"
+        instagram: "https://instagram.com/nayrbef",
+        facebook: undefined,
+        twitter: undefined
       }
     },
     firstMeet: "Cerita singkat pertama bertemu",
