@@ -24,7 +24,7 @@ function ErrorFallback({ error }: { error: Error }) {
 export default function MainLayout({ children, guestName }: MainLayoutProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [_isLoading, setIsLoading] = useState(true);
 
   const handleStartExperience = () => {
     setHasInteracted(true);
@@ -95,7 +95,7 @@ export default function MainLayout({ children, guestName }: MainLayoutProps) {
 
         {/* Main Content */}
         <div className="relative z-30">
-          {React.Children.map(children, (child, index) => (
+          {React.Children.map(children, (child, _index) => (
             <section className="relative">
               {child}
             </section>

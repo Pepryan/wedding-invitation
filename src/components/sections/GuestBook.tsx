@@ -52,8 +52,12 @@ export default function GuestBook() {
       await fetchMessages();
       setName('');
       setMessage('');
-    } catch (err: any) {
-      setError('Failed to submit message: ' + (err.message || 'Unknown error'));
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError('Failed to submit message: ' + err.message);
+      } else {
+        setError('Failed to submit message: Unknown error');
+      }
       console.error('Submission error:', err);
     } finally {
       setLoading(false);
