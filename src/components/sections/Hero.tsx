@@ -9,22 +9,19 @@ export default function Hero({ guestName }: HeroProps) {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ 
-          backgroundImage: 'url(wedding-invitation/images/background/hero-bg.webp)',
-        }}
+      <div
+        className="absolute inset-0 bg-[url('/wedding-invitation/images/background/hero-bg.webp')] bg-cover bg-center bg-no-repeat"
       >
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4">
+      <div className="relative z-10 text-center px-4 max-w-2xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="bg-white/10 backdrop-blur-md p-8 rounded-2xl"
+          className="bg-white/10 backdrop-blur-md p-6 rounded-2xl"
         >
           {guestName && (
             <motion.p
@@ -50,7 +47,7 @@ export default function Hero({ guestName }: HeroProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
-            className="text-4xl md:text-6xl font-serif text-white mb-6"
+            className="text-4xl md:text-6xl font-serif text-white mb-4"
           >
             {weddingConfig.couple.bride.name}
             <span className="block text-2xl md:text-3xl my-4">&</span>
@@ -61,7 +58,7 @@ export default function Hero({ guestName }: HeroProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.1 }}
-            className="text-white/90 text-xl"
+            className="text-white/90 text-lg mt-4"
           >
             {new Date(weddingConfig.event.akad.date).toLocaleDateString('id-ID', {
               day: 'numeric',

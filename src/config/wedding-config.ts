@@ -145,7 +145,7 @@ export const themes = {
 export const weddingConfig = {
   couple: {
     bride: {
-      name: "Nama Lengkap Pengantin Wanita",
+      name: "Mempelai Wanita",
       fullName: "R",
       photo: {
         url: "wedding-invitation/images/couple/bride.webp",
@@ -154,14 +154,12 @@ export const weddingConfig = {
       parents: "Putri dari Bpk ... dan Ibu ...",
       about: "Deskripsi singkat tentang mempelai wanita",
       socialMedia: {
-        instagram: "@username",
-        facebook: "url",
-        twitter: "url"
+        instagram: "https://instagram.com/"
       }
     },
     groom: {
-      name: "Nama Lengkap Pengantin Pria",
-      fullName: "R",
+      name: "Mempelai Pria",
+      fullName: "FR",
       photo: {
         url: "wedding-invitation/images/couple/groom.webp",
         aspectRatio: "portrait"
@@ -169,9 +167,7 @@ export const weddingConfig = {
       parents: "Putra dari Bpk ... dan Ibu ...",
       about: "Deskripsi singkat tentang mempelai pria",
       socialMedia: {
-        instagram: "@username",
-        facebook: "url",
-        twitter: "url"
+        instagram: "https://instagram.com/nayrbef"
       }
     },
     firstMeet: "Cerita singkat pertama bertemu",

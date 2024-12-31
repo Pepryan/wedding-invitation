@@ -4,10 +4,10 @@ import { activeTheme } from '@/config/theme-config';
 interface AudioControlsProps {
   isPlaying: boolean;
   onToggle: () => void;
-  currentTrack: string;
+  currentTrack?: string;
 }
 
-export default function AudioControls({ isPlaying, onToggle, currentTrack }: AudioControlsProps) {
+export default function AudioControls({ isPlaying, onToggle }: AudioControlsProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -20,27 +20,12 @@ export default function AudioControls({ isPlaying, onToggle, currentTrack }: Aud
         style={{ color: activeTheme.text }}
       >
         {isPlaying ? (
-          <>
-            <PauseIcon className="w-5 h-5" />
-            <span className="text-sm">Pause Music</span>
-          </>
+          <PauseIcon className="w-6 h-6" />
         ) : (
-          <>
-            <PlayIcon className="w-5 h-5" />
-            <span className="text-sm">Play Music</span>
-          </>
+          <PlayIcon className="w-6 h-6" />
         )}
       </button>
       
-      {isPlaying && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="mt-2 text-xs text-center text-white/80"
-        >
-          Now Playing: {currentTrack}
-        </motion.div>
-      )}
     </motion.div>
   );
 }

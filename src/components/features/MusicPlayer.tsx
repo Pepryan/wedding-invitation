@@ -66,7 +66,6 @@ export default function MusicPlayer({ isPlaying, setIsPlaying }: MusicPlayerProp
       <AudioControls 
         isPlaying={isPlaying}
         onToggle={handleTogglePlayback}
-        currentTrack={`${currentTrack.title} - ${currentTrack.artist}`}
       />
     </>
   );
