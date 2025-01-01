@@ -37,13 +37,13 @@ export default function Gallery() {
           <p className="text-gray-600">Captured memories of our journey</p>
         </motion.div>
 
-        <motion.div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
           {weddingConfig.gallery.prewedding.map((photo, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0 }}
               animate={{ opacity: imagesLoaded > index ? 1 : 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.3 }}
               className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group"
               onClick={() => {
                 setPhotoIndex(index);
@@ -54,10 +54,10 @@ export default function Gallery() {
                 src={`${basePath}${photo.url}`}
                 alt={photo.caption}
                 fill
-                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                className="object-cover transition-transform duration-300 group-hover:scale-110"
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                className="object-cover transition-transform duration-200 group-hover:scale-105"
                 loading="lazy"
-                quality={75}
+                quality={50}
                 onLoadingComplete={handleImageLoad}
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQrJyEwPENDPzE2O0FBNi5QREZXUFM4UjdqWGB2foVzfHJUQkhzkWNY2ff/2wBDARUXFx4aHR4eHUJBOEFCWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVn/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
@@ -76,6 +76,25 @@ export default function Gallery() {
           close={() => setIsOpen(false)}
           index={photoIndex}
           slides={slides}
+          carousel={{
+            finite: true,
+            preload: 1,
+            imageFit: 'contain'
+          }}
+          controller={{
+            closeOnBackdropClick: true,
+            closeOnPullDown: true
+          }}
+          render={{
+            buttonPrev: () => imagesLoaded === weddingConfig.gallery.prewedding.length ? null : null,
+            buttonNext: () => imagesLoaded === weddingConfig.gallery.prewedding.length ? null : null,
+            iconClose: () => <div className="p-2">✕</div>
+          }}
+          animation={{ swipe: 150 }}
+          styles={{
+            container: { backgroundColor: 'rgba(0,0,0,0.95)' },
+            icon: { color: '#fff', filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.5))' }
+          }}
         />
       </div>
     </section>
