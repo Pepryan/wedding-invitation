@@ -80,6 +80,37 @@ export default function EventDetails() {
                 >
                   View Location
                 </a>
+
+                <button
+                  onClick={() => {
+                    const icsContent = [
+                      'BEGIN:VCALENDAR',
+                      'VERSION:2.0',
+                      'PRODID:-//Wedding//Invitation//EN',
+                      'BEGIN:VEVENT',
+                      `UID:${Date.now()}@wedding`,
+                      `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z`,
+                      `DTSTART:${new Date(`${event.details.date}T${event.details.time}`).toISOString().replace(/[-:]/g, '').split('.')[0]}Z`,
+                      `SUMMARY:${event.title} - ${weddingConfig.couple.bride.name} & ${weddingConfig.couple.groom.name}`,
+                      `DESCRIPTION:${event.details.venue}\\n${event.details.address}`,
+                      `LOCATION:${event.details.venue}, ${event.details.address}`,
+                      'END:VEVENT',
+                      'END:VCALENDAR'
+                    ].join('\n');
+                    
+                    const blob = new Blob([icsContent], { type: 'text/calendar' });
+                    const url = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = `${event.title.replace(' ', '_')}_${weddingConfig.couple.bride.name}_${weddingConfig.couple.groom.name}.ics`;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }}
+                  className="block w-full text-center bg-gray-900 hover:bg-gray-800 text-white font-semibold text-lg py-4 px-6 rounded-lg shadow-lg border-2 border-gray-800 transition-all duration-200 mt-4 active:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+                >
+                  Save to Calendar
+                </button>
               </div>
             </motion.div>
           ))}

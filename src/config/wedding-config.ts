@@ -228,7 +228,7 @@ export const weddingConfig = {
   },
   event: {
     akad: {
-      date: "2300-06-01",
+      date: "2026-01-01",
       time: "08:00",
       venue: "Nama Tempat",
       address: "Alamat Lengkap",
@@ -237,7 +237,7 @@ export const weddingConfig = {
       additional_info: "Info tambahan tentang acara akad"
     },
     reception: {
-      date: "2300-06-01",
+      date: "2026-01-01",
       time: "11:00",
       venue: "Nama Tempat",
       address: "Alamat Lengkap",

@@ -50,7 +50,15 @@ const PhotoContainer = ({ photo, name, aspectRatio, isBride }: {
           className="absolute inset-[-40px] z-20 pointer-events-none"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          whileInView={{
+          whileInView={aspectRatio === "portrait" ? {
+            scale: [1, 1.03, 1],
+            transition: {
+              duration: 6,
+              repeat: Infinity,
+              repeatType: 'mirror',
+              ease: 'easeInOut'
+            }
+          } : {
             rotate: [0, 5, -5, 0],
             scale: [1, 1.02, 1],
             transition: {
@@ -70,9 +78,11 @@ const PhotoContainer = ({ photo, name, aspectRatio, isBride }: {
             alt=""
             fill
             className={`object-contain opacity-80 ${
-              aspectRatio === "portrait" ? "scale-[1.3]" : "scale-[1.1]"
+              aspectRatio === "portrait" ? "scale-[1.3] mask-radial" : "scale-[1.1]"
             }`}
-            style={aspectRatio === "portrait" ? {} : { transform: 'scale(1.1)' }}
+            style={aspectRatio === "portrait" ? {
+              maskImage: 'radial-gradient(circle at center, white 80%, transparent 95%)'
+            } : { transform: 'scale(1.1)' }}
           />
         </motion.div>
       )}
