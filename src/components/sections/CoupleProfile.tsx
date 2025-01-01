@@ -45,30 +45,37 @@ const PhotoContainer = ({ photo, name, aspectRatio, isBride }: {
       </div>
       
       {/* Frame Decoration */}
-      <motion.div
-        className="absolute inset-[-40px] z-20 pointer-events-none"
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        whileInView={{
-          rotate: [0, 5, -5, 0],
-          scale: [1, 1.02, 1],
-          transition: {
-            duration: 8,
-            repeat: Infinity,
-            repeatType: 'mirror',
-            ease: 'easeInOut'
-          }
-        }}
-        transition={{ duration: 1, delay: 0.5 }}
-      >
-        <Image
-          src="/wedding-invitation/images/couple/frame-photo-1.webp"
-          alt=""
-          fill
-          className="object-contain opacity-80"
-          style={{ transform: 'scale(1.1)' }}
-        />
-      </motion.div>
+      {weddingConfig.couple.bride.photo.frame && (
+        <motion.div
+          className="absolute inset-[-40px] z-20 pointer-events-none"
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          whileInView={{
+            rotate: [0, 5, -5, 0],
+            scale: [1, 1.02, 1],
+            transition: {
+              duration: 8,
+              repeat: Infinity,
+              repeatType: 'mirror',
+              ease: 'easeInOut'
+            }
+          }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          <Image
+            src={isBride ?
+              weddingConfig.couple.bride.photo.frame[aspectRatio] :
+              weddingConfig.couple.groom.photo.frame[aspectRatio]
+            }
+            alt=""
+            fill
+            className={`object-contain opacity-80 ${
+              aspectRatio === "portrait" ? "scale-[1.3]" : "scale-[1.1]"
+            }`}
+            style={aspectRatio === "portrait" ? {} : { transform: 'scale(1.1)' }}
+          />
+        </motion.div>
+      )}
 
       <div className="absolute inset-4 rounded-full overflow-hidden
         shadow-[0_0_30px_rgba(0,0,0,0.15)]

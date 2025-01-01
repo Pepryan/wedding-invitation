@@ -21,6 +21,10 @@ export interface WeddingConfig {
       photo: {
         url: string;
         aspectRatio: "1:1" | "portrait";
+        frame?: {
+          "1:1": string;
+          portrait: string;
+        };
       };
       parents: string;
       about: string;
@@ -149,7 +153,11 @@ export const weddingConfig = {
       fullName: "R",
       photo: {
         url: "wedding-invitation/images/couple/bride.webp",
-        aspectRatio: "1:1"
+        aspectRatio: "portrait",
+        frame: {
+          "1:1": "wedding-invitation/images/couple/frame-photo-1.webp",
+          portrait: "wedding-invitation/images/couple/frame-photo-2.webp"
+        }
       },
       parents: "Putri dari Bpk ... dan Ibu ...",
       about: "Deskripsi singkat tentang mempelai wanita",
@@ -164,7 +172,11 @@ export const weddingConfig = {
       fullName: "FR",
       photo: {
         url: "wedding-invitation/images/couple/groom.webp",
-        aspectRatio: "1:1"
+        aspectRatio: "1:1",
+        frame: {
+          "1:1": "wedding-invitation/images/couple/frame-photo-1.webp",
+          portrait: "wedding-invitation/images/couple/frame-photo-2.webp"
+        }
       },
       parents: "Putra dari Bpk ... dan Ibu ...",
       about: "Deskripsi singkat tentang mempelai pria",
