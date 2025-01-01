@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { createClient } from '@supabase/supabase-js';
+import { scrollAnimation, viewportSettings } from '../animations/scrollAnimations';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -20,16 +21,54 @@ export default function GuestBook() {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const messagesPerPage = 5;
 
-  const fetchMessages = async () => {
+  const formatDateWIB = (dateString: string) => {
+    const date = new Date(dateString);
+    return (
+      <>
+        <span className="hidden sm:inline">
+          {date.toLocaleString('id-ID', {
+            timeZone: 'Asia/Jakarta',
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          }).replace(/\./g, ':')}
+        </span>
+        <span className="sm:hidden">
+          {date.toLocaleString('id-ID', {
+            timeZone: 'Asia/Jakarta',
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          }).replace(/\./g, ':')}
+        </span>
+      </>
+    );
+  };
+
+  const fetchMessages = async (page: number = 1) => {
     try {
-      const { data, error } = await supabase
+      setLoading(true);
+      const from = (page - 1) * messagesPerPage;
+      const to = from + messagesPerPage - 1;
+      
+      const { data, error, count } = await supabase
         .from('guest_book')
-        .select('*')
-        .order('created_at', { ascending: false });
+        .select('*', { count: 'exact' })
+        .order('created_at', { ascending: false })
+        .range(from, to);
       
       if (error) throw error;
       setMessages(data || []);
+      setTotalPages(Math.ceil((count || 0) / messagesPerPage));
+      setCurrentPage(page);
     } catch (err) {
       setError('Failed to fetch messages');
       console.error(err);
@@ -72,9 +111,10 @@ export default function GuestBook() {
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          variants={scrollAnimation}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={viewportSettings}
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-serif mb-4 text-gray-800">
@@ -124,19 +164,43 @@ export default function GuestBook() {
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
             </div>
           ) : (
-            <div className="space-y-4">
-              {messages.map((msg) => (
-                <div key={msg.id} className="bg-white p-4 rounded-lg shadow-sm">
-                  <div className="flex justify-between items-center mb-2">
-                    <h3 className="font-medium text-gray-800">{msg.name}</h3>
-                    <span className="text-sm text-gray-500">
-                      {new Date(msg.created_at).toLocaleDateString()}
-                    </span>
+            <>
+              <div className="space-y-4 mb-8">
+                {messages.map((msg) => (
+                  <div key={msg.id} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div className="flex justify-between items-center mb-3">
+                      <h3 className="font-semibold text-gray-800 text-lg">{msg.name}</h3>
+                      <span className="text-sm text-gray-500 whitespace-nowrap ml-2">
+                        {formatDateWIB(msg.created_at)}
+                      </span>
+                    </div>
+                    <p className="text-gray-600 whitespace-pre-line">{msg.message}</p>
                   </div>
-                  <p className="text-gray-600">{msg.message}</p>
+                ))}
+              </div>
+
+              {totalPages > 1 && (
+                <div className="flex justify-center gap-2">
+                  <button
+                    onClick={() => fetchMessages(currentPage - 1)}
+                    disabled={currentPage === 1}
+                    className="px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Previous
+                  </button>
+                  <span className="px-4 py-2 bg-gray-100 rounded-lg">
+                    Page {currentPage} of {totalPages}
+                  </span>
+                  <button
+                    onClick={() => fetchMessages(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                    className="px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Next
+                  </button>
                 </div>
-              ))}
-            </div>
+              )}
+            </>
           )}
         </div>
       </div>

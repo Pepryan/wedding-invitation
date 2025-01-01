@@ -45,9 +45,36 @@ export default function MusicPlayer({ isPlaying, setIsPlaying }: MusicPlayerProp
     const currentAudio = audioRef.current;
     if (currentAudio && isLoaded) {
       if (isPlaying) {
-        currentAudio.play().catch(() => {
-          setIsPlaying(false);
-        });
+        // Create a promise chain to handle Safari's autoplay restrictions
+        const playPromise = currentAudio.play();
+        
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              // Audio started playing
+            })
+            .catch((error) => {
+              // Handle Safari's autoplay restrictions
+              if (error.name === 'NotAllowedError') {
+                // Wait for user interaction before attempting to play
+                const handleFirstInteraction = () => {
+                  currentAudio.play()
+                    .then(() => {
+                      window.removeEventListener('click', handleFirstInteraction);
+                      window.removeEventListener('touchstart', handleFirstInteraction);
+                    })
+                    .catch(() => {
+                      setIsPlaying(false);
+                    });
+                };
+                
+                window.addEventListener('click', handleFirstInteraction);
+                window.addEventListener('touchstart', handleFirstInteraction);
+              } else {
+                setIsPlaying(false);
+              }
+            });
+        }
       } else {
         currentAudio.pause();
       }

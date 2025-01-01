@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { weddingConfig } from '@/config/wedding-config';
+import { weddingConfig } from '../../config/wedding-config';
+import { scrollAnimation, viewportSettings } from '../animations/scrollAnimations';
 
 interface HeroProps {
   guestName?: string;
@@ -7,12 +8,99 @@ interface HeroProps {
 
 export default function Hero({ guestName }: HeroProps) {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
+    <motion.section 
+      className="relative h-screen flex items-center justify-center overflow-hidden"
+      variants={scrollAnimation}
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={viewportSettings}
+    >
+      {/* Background Image with Animated Overlay */}
       <div
         className="absolute inset-0 bg-[url('/wedding-invitation/images/background/hero-bg.webp')] bg-cover bg-center bg-no-repeat"
+        style={{
+          maskImage: 'url(/wedding-invitation/images/background/hero-bg.webp)',
+          maskPosition: 'center',
+          maskRepeat: 'repeat'
+        }}
       >
-        <div className="absolute inset-0 bg-black/40"></div>
+        <motion.div
+          className="absolute inset-0 bg-black/40"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+        />
+        
+        {/* Floating Flower Patterns */}
+        <motion.img
+          src="wedding-invitation/images/pattern/flower-1.webp"
+          alt=""
+          className="absolute top-[10%] left-[5%] w-16 opacity-80 z-20"
+          initial={{ y: 0, rotate: 0 }}
+          animate={{ y: [0, -40, 0], rotate: [0, 15, 0] }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            repeatType: 'mirror',
+            ease: 'easeInOut'
+          }}
+        />
+        <motion.img
+          src="wedding-invitation/images/pattern/flower-2.webp"
+          alt=""
+          className="absolute top-[20%] right-[10%] w-20 opacity-80 z-20"
+          initial={{ y: 0, rotate: 0 }}
+          animate={{ y: [0, -30, 0], rotate: [0, -10, 0] }}
+          transition={{
+            duration: 7,
+            repeat: Infinity,
+            repeatType: 'mirror',
+            ease: 'easeInOut',
+            delay: 1
+          }}
+        />
+        <motion.img
+          src="wedding-invitation/images/pattern/flower-3.webp"
+          alt=""
+          className="absolute bottom-[15%] left-[15%] w-24 opacity-80 z-20"
+          initial={{ y: 0, rotate: 0 }}
+          animate={{ y: [0, -50, 0], rotate: [0, 20, 0] }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            repeatType: 'mirror',
+            ease: 'easeInOut',
+            delay: 2
+          }}
+        />
+        <motion.img
+          src="wedding-invitation/images/pattern/flower-1.webp"
+          alt=""
+          className="absolute top-[5%] right-[20%] w-12 opacity-70 z-20"
+          initial={{ y: 0, rotate: 0 }}
+          animate={{ y: [0, -25, 0], rotate: [0, 10, 0] }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            repeatType: 'mirror',
+            ease: 'easeInOut',
+            delay: 0.5
+          }}
+        />
+        <motion.img
+          src="wedding-invitation/images/pattern/flower-2.webp"
+          alt=""
+          className="absolute bottom-[5%] right-[5%] w-16 opacity-70 z-20"
+          initial={{ y: 0, rotate: 0 }}
+          animate={{ y: [0, -35, 0], rotate: [0, -15, 0] }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            repeatType: 'mirror',
+            ease: 'easeInOut',
+            delay: 1.5
+          }}
+        />
       </div>
 
       {/* Content */}
@@ -43,16 +131,34 @@ export default function Hero({ guestName }: HeroProps) {
               You are invited to our wedding.
           </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="text-4xl md:text-6xl font-serif text-white mb-4"
-          >
-            {weddingConfig.couple.bride.name}
-            <span className="block text-2xl md:text-3xl my-4">&</span>
-            {weddingConfig.couple.groom.name}
-          </motion.h1>
+          <motion.div className="space-y-4">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 1 }}
+              className="text-4xl md:text-6xl font-serif text-white"
+            >
+              {weddingConfig.couple.bride.name}
+            </motion.h1>
+            
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 1.2, type: 'spring', stiffness: 100 }}
+              className="text-2xl md:text-3xl text-white/80"
+            >
+              &
+            </motion.div>
+            
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.4, duration: 1 }}
+              className="text-4xl md:text-6xl font-serif text-white"
+            >
+              {weddingConfig.couple.groom.name}
+            </motion.h1>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0 }}
@@ -82,6 +188,6 @@ export default function Hero({ guestName }: HeroProps) {
           </svg>
         </div>
       </motion.div>
-    </section>
+    </motion.section>
   );
 }

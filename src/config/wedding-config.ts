@@ -149,7 +149,7 @@ export const weddingConfig = {
       fullName: "R",
       photo: {
         url: "wedding-invitation/images/couple/bride.webp",
-        aspectRatio: "portrait"
+        aspectRatio: "1:1"
       },
       parents: "Putri dari Bpk ... dan Ibu ...",
       about: "Deskripsi singkat tentang mempelai wanita",
@@ -164,7 +164,7 @@ export const weddingConfig = {
       fullName: "FR",
       photo: {
         url: "wedding-invitation/images/couple/groom.webp",
-        aspectRatio: "portrait"
+        aspectRatio: "1:1"
       },
       parents: "Putra dari Bpk ... dan Ibu ...",
       about: "Deskripsi singkat tentang mempelai pria",
@@ -236,26 +236,26 @@ export const weddingConfig = {
   },
   digitalEnvelope: {
     banks: [
-      {
-        name: "BCA",
-        accountNumber: "1234567890",
-        accountHolder: "NAMA PEMILIK"
-      },
-      {
-        name: "Mandiri",
-        accountNumber: "0987654321",
-        accountHolder: "NAMA PEMILIK"
-      },
+      // {
+      //   name: "BCA",
+      //   accountNumber: "1234567890",
+      //   accountHolder: "NAMA PEMILIK"
+      // },
+      // {
+      //   name: "Mandiri",
+      //   accountNumber: "0987654321",
+      //   accountHolder: "NAMA PEMILIK"
+      // },
       {
         name: "BNI",
         accountNumber: "1234567890",
         accountHolder: "NAMA PEMILIK"
       },
-      {
-        name: "BSI",
-        accountNumber: "1234567890",
-        accountHolder: "NAMA PEMILIK"
-      },
+      // {
+      //   name: "BSI",
+      //   accountNumber: "1234567890",
+      //   accountHolder: "NAMA PEMILIK"
+      // },
       {
         name: "Bank Jago Syariah",
         accountNumber: "1234567890",
@@ -265,17 +265,17 @@ export const weddingConfig = {
     eWallets: [
       {
         name: "GoPay",
-        number: "081234567890",
+        number: "08888024148",
         logo: "wedding-invitation/images/logos/gopay.webp"
       },
-      {
-        name: "OVO",
-        number: "081234567890",
-        logo: "wedding-invitation/images/logos/ovo.webp"
-      },
+      // {
+      //   name: "OVO",
+      //   number: "08888024148",
+      //   logo: "wedding-invitation/images/logos/ovo.webp"
+      // },
       {
         name: "ShopeePay",
-        number: "081234567890",
+        number: "08",
         logo: "wedding-invitation/images/logos/shopeepay.webp"
       }
     ]

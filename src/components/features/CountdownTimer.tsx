@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { weddingConfig } from '@/config/wedding-config';
-import { activeTheme } from '@/config/theme-config';
+import { weddingConfig } from '../../config/wedding-config';
+import { activeTheme } from '../../config/theme-config';
+import { scrollAnimation, viewportSettings } from '../animations/scrollAnimations';
 
 interface TimeLeft {
   days: number;
@@ -50,7 +51,14 @@ export default function CountdownTimer() {
   }
 
   return (
-    <div className="relative py-16" style={{ backgroundColor: activeTheme.background }}>
+    <motion.div
+      className="relative pt-8 pb-16"
+      style={{ backgroundColor: activeTheme.background }}
+      variants={scrollAnimation}
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={viewportSettings}
+    >
       <div className="absolute inset-0 opacity-10" style={{ 
         backgroundImage: 'url("wedding-invitation/images/pattern/subtle-pattern.webp")',
         backgroundRepeat: 'repeat' 
@@ -58,8 +66,10 @@ export default function CountdownTimer() {
       
       <div className="container mx-auto px-4">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          variants={scrollAnimation}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={viewportSettings}
           className="text-center text-2xl md:text-3xl font-serif mb-8"
           style={{ color: activeTheme.text }}
         >
@@ -70,8 +80,10 @@ export default function CountdownTimer() {
           {timeUnits.map(({ label, value }, index) => (
             <motion.div
               key={label}
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
+              variants={scrollAnimation}
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={viewportSettings}
               transition={{ delay: index * 0.1 }}
               className="relative"
             >
@@ -90,6 +102,6 @@ export default function CountdownTimer() {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

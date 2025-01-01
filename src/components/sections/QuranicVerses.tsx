@@ -1,15 +1,34 @@
-import React from 'react';
+import { motion } from 'framer-motion';
+import { scrollAnimation, viewportSettings } from '../animations/scrollAnimations';
 
 const QuranicVerses = () => {
   return (
-    <section className="py-16 bg-wedding-primary relative overflow-hidden">
+    <motion.section
+      className="py-16 bg-wedding-primary relative overflow-hidden"
+      variants={scrollAnimation}
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={viewportSettings}
+    >
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid md:grid-cols-2 gap-8 animate-slide-up">
-          <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg">
+        <motion.div 
+          className="grid md:grid-cols-2 gap-8"
+          variants={scrollAnimation}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={viewportSettings}
+        >
+          <motion.div 
+            className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg"
+            variants={scrollAnimation}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={viewportSettings}
+          >
             <h3 className="text-xl font-semibold text-wedding-text mb-4">
               QS. Ar-Rum (30:21)
             </h3>
@@ -19,8 +38,15 @@ const QuranicVerses = () => {
             <p className="text-wedding-text/80 italic">
               - Al-Qur'an Surat Ar-Rum Ayat 21
             </p>
-          </div>
-          <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg">
+          </motion.div>
+          
+          <motion.div 
+            className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg"
+            variants={scrollAnimation}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={viewportSettings}
+          >
             <h3 className="text-xl font-semibold text-wedding-text mb-4">
               QS. An-Nisa (4:1)
             </h3>
@@ -30,10 +56,10 @@ const QuranicVerses = () => {
             <p className="text-wedding-text/80 italic">
               - Al-Qur'an Surat An-Nisa Ayat 1
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
