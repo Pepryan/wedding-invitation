@@ -44,9 +44,9 @@ const Home: NextPage = () => {
       <MainLayout guestName={guestName}>
         <Hero guestName={guestName} />
         <CoupleProfile />
-        <StoryTimeline />
         <CountdownTimer />
         <EventDetails />
+        <StoryTimeline />
         <Gallery />
         <LiveStreaming />
         <DigitalEnvelope />

@@ -53,7 +53,7 @@ const PhotoContainer = ({ photo, name, aspectRatio, isBride }: {
           whileInView={aspectRatio === "portrait" ? {
             scale: [1, 1.03, 1],
             transition: {
-              duration: 6,
+              duration: 5,
               repeat: Infinity,
               repeatType: 'mirror',
               ease: 'easeInOut'
@@ -119,8 +119,17 @@ export default function CoupleProfile() {
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-serif mb-4">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</h2>
-          <p className="text-gray-600">In the Name of Allah, the Most Beneficent, the Most Merciful</p>
+          {/* <h2 className="text-3xl font-serif mb-4">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</h2> */}
+          <div className="relative w-64 h-32 mx-auto mb-4">
+            <Image
+              src="wedding-invitation/images/background/bismillah.png"
+              alt="Bismillah"
+              fill
+              className="object-contain"
+            />
+          </div>
+          <p className="text-blue-600">In the Name of Allah, the Most Beneficent, the Most Merciful</p>
+          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">Dengan memohon rahmat dan ridho-Mu Ya Allah, izinkan kami mengundang Bapak/Ibu/Saudara untuk menghadiri hari bahagia pernikahan kami.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-16 max-w-5xl mx-auto">

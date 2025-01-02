@@ -27,7 +27,25 @@ export default function DigitalEnvelope() {
 
         <div className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-8 max-w-4xl mx-auto">
           {/* Bank Transfers */}
-          <div className="bg-white p-4 md:p-8 rounded-xl shadow-lg">
+          <div className="relative bg-white p-4 md:p-8 rounded-xl shadow-lg overflow-hidden">
+            {/* Top-left decoration */}
+            <div className="absolute -top-4 -left-4 w-20 h-20 opacity-50">
+              <Image
+                src="wedding-invitation/images/pattern/flower-2.webp"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
+            {/* Bottom-right decoration */}
+            <div className="absolute -bottom-4 -right-4 w-20 h-20 opacity-50 rotate-180">
+              <Image
+                src="wedding-invitation/images/pattern/flower-3.webp"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
             <h3 className="text-xl md:text-2xl font-serif mb-4 md:mb-6 text-center" style={{ color: activeTheme.text }}>
               Bank Transfer
             </h3>
@@ -54,7 +72,25 @@ export default function DigitalEnvelope() {
           </div>
 
           {/* E-Wallets */}
-          <div className="bg-white p-4 md:p-8 rounded-xl shadow-lg">
+          <div className="relative bg-white p-4 md:p-8 rounded-xl shadow-lg overflow-hidden">
+            {/* Top-left decoration */}
+            <div className="absolute -top-4 -left-4 w-20 h-20 opacity-50">
+              <Image
+                src="wedding-invitation/images/pattern/flower-1.webp"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
+            {/* Bottom-right decoration */}
+            <div className="absolute -bottom-4 -right-4 w-20 h-20 opacity-50 rotate-180">
+              <Image
+                src="wedding-invitation/images/pattern/flower-2.webp"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
             <h3 className="text-xl md:text-2xl font-serif mb-4 md:mb-6 text-center" style={{ color: activeTheme.text }}>
               E-Wallet
             </h3>

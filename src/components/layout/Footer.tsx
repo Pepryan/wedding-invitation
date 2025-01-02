@@ -15,8 +15,14 @@ export default function Footer() {
           <h2 className="text-3xl font-serif text-white mb-4">
             {weddingConfig.couple.bride.name} & {weddingConfig.couple.groom.name}
           </h2>
-          <p className="text-white/80 mb-8">
-            Thank you for being part of our special day
+          <p className="text-white/80 mb-8 max-w-2xl mx-auto">
+            Ungkapan terima kasih yang tulus dari kami apabila Bapak/Ibu/Sdr/i berkenan hadir dan memberikan do'a restu kepada kami.
+          </p>
+          <p className="text-white/80 mb-8 max-w-2xl mx-auto">
+            Jazakumullah Khairan Katsira Wassalamu'alaikum Warahmatullahi Wabarakatuh.
+          </p>
+          <p className="text-white/80 mb-8 max-w-2xl mx-auto">
+            Kami yang berbahagia Keluarga (Nama Mempelai Wanita) Keluarga (Nama Mempelai Pria)
           </p>
           <div className="text-white/60 text-sm">
             <p>Made with ❤️</p>
