@@ -9,7 +9,7 @@ interface HeroProps {
 export default function Hero({ guestName }: HeroProps) {
   return (
     <motion.section 
-      className="relative h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pb-20"
       variants={scrollAnimation}
       initial="offscreen"
       whileInView="onscreen"
@@ -109,8 +109,38 @@ export default function Hero({ guestName }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="bg-white/10 backdrop-blur-md p-6 rounded-2xl"
+          className="bg-white/10 backdrop-blur-md p-6 rounded-2xl relative overflow-hidden"
         >
+          {/* Decorative Elements */}
+          <motion.img
+            src="wedding-invitation/images/pattern/flower-1.webp"
+            alt=""
+            className="absolute -top-8 -left-8 w-16 opacity-50"
+            initial={{ scale: 0, rotate: -45 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ delay: 0.5, duration: 1 }}
+          />
+          <motion.img
+            src="wedding-invitation/images/pattern/flower-2.webp"
+            alt=""
+            className="absolute -bottom-8 -right-8 w-20 opacity-50"
+            initial={{ scale: 0, rotate: 45 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ delay: 0.7, duration: 1 }}
+          />
+          
+          {/* Glow Effect */}
+          <motion.div
+            className="absolute inset-0 rounded-2xl"
+            initial={{ boxShadow: '0 0 0 rgba(255,255,255,0.1)' }}
+            animate={{ boxShadow: '0 0 20px rgba(255,255,255,0.3)' }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              repeatType: 'mirror',
+              ease: 'easeInOut'
+            }}
+          />
           {guestName && (
             <motion.p
               initial={{ opacity: 0 }}
