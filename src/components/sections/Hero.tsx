@@ -111,36 +111,25 @@ export default function Hero({ guestName }: HeroProps) {
           transition={{ duration: 1 }}
           className="bg-white/10 backdrop-blur-md p-6 rounded-2xl relative overflow-hidden"
         >
-          {/* Decorative Elements */}
-          <motion.img
-            src="wedding-invitation/images/pattern/flower-1.webp"
-            alt=""
-            className="absolute -top-8 -left-8 w-16 opacity-50"
-            initial={{ scale: 0, rotate: -45 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ delay: 0.5, duration: 1 }}
-          />
-          <motion.img
-            src="wedding-invitation/images/pattern/flower-2.webp"
-            alt=""
-            className="absolute -bottom-8 -right-8 w-20 opacity-50"
-            initial={{ scale: 0, rotate: 45 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ delay: 0.7, duration: 1 }}
-          />
+          {/* Creative Decorative Elements */}
+          <div className="absolute -bottom-8 -right-8 w-20 opacity-70 animate-float-slow">
+            <img
+              src="wedding-invitation/images/pattern/flower-2.webp"
+              alt=""
+              className="w-full h-full"
+            />
+          </div>
           
-          {/* Glow Effect */}
-          <motion.div
-            className="absolute inset-0 rounded-2xl"
-            initial={{ boxShadow: '0 0 0 rgba(255,255,255,0.1)' }}
-            animate={{ boxShadow: '0 0 20px rgba(255,255,255,0.3)' }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              repeatType: 'mirror',
-              ease: 'easeInOut'
-            }}
-          />
+          {/* Subtle Glow Effect */}
+          <div className="absolute inset-0 rounded-2xl animate-glow" />
+          
+          {/* Floating Petals Background */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute w-4 h-4 bg-white/10 rounded-full top-[10%] left-[5%] animate-petal-float-1" />
+            <div className="absolute w-3 h-3 bg-white/10 rounded-full top-[20%] left-[20%] animate-petal-float-2" />
+            <div className="absolute w-4 h-4 bg-white/10 rounded-full top-[15%] right-[10%] animate-petal-float-3" />
+            <div className="absolute w-3 h-3 bg-white/10 rounded-full bottom-[10%] left-[15%] animate-petal-float-4" />
+          </div>
           {guestName && (
             <motion.p
               initial={{ opacity: 0 }}
