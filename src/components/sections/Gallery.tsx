@@ -11,7 +11,7 @@ export default function Gallery() {
   const { basePath } = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
-  const [imagesLoaded, setImagesLoaded] = useState(0);
+  const [_imagesLoaded, setImagesLoaded] = useState(0);
 
   const handleImageLoad = () => {
     setImagesLoaded(prev => prev + 1);
