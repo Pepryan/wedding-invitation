@@ -32,19 +32,23 @@ export default function Gallery() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-serif mb-4" style={{ color: activeTheme.text }}>
-            Our Moments
+            Pre-Wedding Photos
           </h2>
-          <p className="text-gray-600">Captured memories of our journey</p>
         </motion.div>
 
-        <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
+        <motion.div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
           {weddingConfig.gallery.prewedding.map((photo, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: imagesLoaded > index ? 1 : 0 }}
-              transition={{ duration: 0.3 }}
-              className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group"
+              initial={{ opacity: 0, rotateY: 90 }}
+              whileInView={{ opacity: 1, rotateY: 0 }}
+              viewport={{ margin: "0px 0px -100px 0px" }}
+              transition={{
+                duration: 1.2,
+                ease: "easeInOut",
+                delay: index * 0.15
+              }}
+              className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group transform-style-preserve-3d"
               onClick={() => {
                 setPhotoIndex(index);
                 setIsOpen(true);
@@ -52,21 +56,16 @@ export default function Gallery() {
             >
               <Image
                 src={`${basePath}${photo.url}`}
-                alt={photo.caption}
+                alt="Pre-wedding photo"
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                className="object-cover transition-transform duration-200 group-hover:scale-105"
-                loading="lazy"
-                quality={50}
+                className="object-cover backface-hidden"
+                loading={index < 4 ? "eager" : "lazy"}
+                quality={index < 4 ? 75 : 50}
                 onLoad={handleImageLoad}
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQrJyEwPENDPzE2O0FBNi5QREZXUFM4UjdqWGB2foVzfHJUQkhzkWNY2ff/2wBDARUXFx4aHR4eHUJBOEFCWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVn/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
               />
-              <div className="absolute inset-0 bg-black/20 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-white text-sm bg-gradient-to-t from-black/50 to-transparent">
-                  {photo.caption}
-                </div>
-              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -78,7 +77,7 @@ export default function Gallery() {
           slides={slides}
           carousel={{
             finite: true,
-            preload: 1,
+            preload: 2,
             imageFit: 'contain'
           }}
           controller={{
@@ -86,13 +85,18 @@ export default function Gallery() {
             closeOnPullDown: true
           }}
           render={{
-            buttonPrev: () => imagesLoaded === weddingConfig.gallery.prewedding.length ? null : null,
-            buttonNext: () => imagesLoaded === weddingConfig.gallery.prewedding.length ? null : null,
+            buttonPrev: () => null,
+            buttonNext: () => null,
             iconClose: () => <div className="p-2">✕</div>
           }}
           animation={{ swipe: 150 }}
           styles={{
-            container: { backgroundColor: 'rgba(0,0,0,0.95)' },
+            container: {
+              backgroundColor: 'rgba(0,0,0,0.95)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            },
             icon: { color: '#fff', filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.5))' }
           }}
         />
@@ -100,3 +104,4 @@ export default function Gallery() {
     </section>
   );
 }
+

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
-import { weddingConfig } from '../../config/wedding-config';
-import { activeTheme } from '../../config/theme-config';
+import { weddingConfig } from '@/config/wedding-config';
+import { activeTheme } from '@/config/theme-config';
 
 export default function DigitalEnvelope() {
   const [copiedText, setCopiedText] = useState<string>('');

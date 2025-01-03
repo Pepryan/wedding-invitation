@@ -186,42 +186,42 @@ export const weddingConfig = {
         twitter: undefined
       }
     },
-    firstMeet: "Our paths crossed unexpectedly, and little did we know it was the start of something beautiful",
+    firstMeet: "Dengan izin Allah, perjalanan kami dimulai. 'Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya' (QS. Ar-Rum: 21)",
     loveStory: [
       {
-        date: "January 2022",
-        title: "The First Encounter",
-        description: "We met at a mutual friend's gathering. Our eyes locked across the room, and we spent the whole night talking and laughing like we've known each other forever.",
+        date: "Januari 2022",
+        title: "Pertemuan Pertama",
+        description: "Atas kehendak Allah, kami dipertemukan dalam majelis ilmu. 'Sesungguhnya Allah menciptakan jodoh-jodoh di antara kalian' (HR. Muslim). Kami bersyukur atas pertemuan ini.",
         image: "wedding-invitation/images/story/first-meet.webp"
       },
       {
-        date: "March 2022",
-        title: "First Date",
-        description: "Our first official date at a cozy coffee shop. We discovered our shared love for art and music, and the hours flew by as we shared our dreams and aspirations.",
+        date: "Maret 2022",
+        title: "Ta'aruf",
+        description: "Kami memulai proses ta'aruf dengan niat yang tulus. 'Wanita itu dinikahi karena empat hal: karena hartanya, keturunannya, kecantikannya, dan agamanya. Maka pilihlah yang memiliki agama, niscaya kamu akan beruntung' (HR. Bukhari).",
         image: "wedding-invitation/images/gallery/prewedding-1.webp"
       },
       {
-        date: "June 2022",
-        title: "Becoming Official",
-        description: "After months of getting to know each other, we made it official. It was a simple moment, but one we'll cherish forever.",
+        date: "Juni 2022",
+        title: "Khittah",
+        description: "Dengan restri orang tua, kami memantapkan niat untuk membangun rumah tangga yang sakinah, mawaddah, wa rahmah. 'Dan nikahkanlah orang-orang yang masih membujang di antara kamu, dan juga orang-orang yang layak dari hamba-hamba sahayamu yang lelaki dan perempuan' (QS. An-Nur: 32).",
         image: "wedding-invitation/images/gallery/prewedding-2.webp"
       },
       {
-        date: "December 2022",
-        title: "First Eid al-Fitr Together",
-        description: "Celebrating our first Eid al-Fitr as a couple, sharing the joy of the holy month and strengthening our bond through faith.",
+        date: "Desember 2022",
+        title: "Ramadhan Pertama Bersama",
+        description: "Bersama menjalani ibadah Ramadhan, saling mengingatkan dalam kebaikan. 'Sebaik-baik kamu adalah yang paling baik terhadap istrinya' (HR. Tirmidzi).",
         image: "wedding-invitation/images/gallery/moment-3.webp"
       },
       {
-        date: "June 2023",
-        title: "The Proposal",
-        description: "On a beautiful beach at sunset, surrounded by our closest friends and family, we promised to spend our lives together.",
+        date: "Juni 2023",
+        title: "Lamaran",
+        description: "Dengan doa dan restu keluarga, kami melangkah ke tahap lamaran. 'Barangsiapa yang menikah, maka ia telah menyempurnakan separuh agamanya' (HR. Baihaqi).",
         image: "wedding-invitation/images/gallery/prewedding-3.webp"
       },
       {
-        date: "The Future",
-        title: "Our Journey Continues",
-        description: "We look forward to building a life full of love, laughter, and adventure together. This is just the beginning of our forever.",
+        date: "Masa Depan",
+        title: "Perjalanan Suci",
+        description: "Kami berdoa agar Allah SWT memberkahi pernikahan kami. 'Ya Allah, berkahilah kami dalam pasangan kami dan berkahilah pasangan kami untuk kami' (HR. Abu Dawud).",
         image: "wedding-invitation/images/gallery/moment-1.webp"
       }
     ]
