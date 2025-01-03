@@ -128,8 +128,10 @@ export default function CoupleProfile() {
               className="object-contain"
             />
           </div>
-          <p className="text-blue-600">In the Name of Allah, the Most Beneficent, the Most Merciful</p>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">Dengan memohon rahmat dan ridho-Mu Ya Allah, izinkan kami mengundang Bapak/Ibu/Saudara untuk menghadiri hari bahagia pernikahan kami.</p>
+          <div className="relative bg-black/20 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
+            <p className="text-white text-lg font-medium leading-relaxed">In the Name of Allah, the Most Beneficent, the Most Merciful</p>
+            <p className="mt-4 text-white/90 leading-relaxed">Dengan memohon rahmat dan ridho-Mu Ya Allah, izinkan kami mengundang Bapak/Ibu/Saudara untuk menghadiri hari bahagia pernikahan kami.</p>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-16 max-w-5xl mx-auto">

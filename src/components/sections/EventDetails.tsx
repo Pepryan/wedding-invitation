@@ -27,8 +27,10 @@ export default function EventDetails() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-serif mb-4">Save the Date</h2>
-          <p className="text-gray-600">We invite you to celebrate our special day</p>
+          <div className="relative bg-black/20 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
+            <h2 className="text-4xl font-serif mb-4 text-white">Save the Date</h2>
+            <p className="text-white/90">We invite you to celebrate our special day</p>
+          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
