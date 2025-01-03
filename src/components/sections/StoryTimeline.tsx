@@ -47,9 +47,9 @@ export default function StoryTimeline() {
                 }
               }}
               exit={{ opacity: 0, x: index % 2 === 0 ? -100 : 100, y: 50, scale: 0.9, rotate: index % 2 === 0 ? -5 : 5 }}
-              className="flex flex-row items-center gap-8 mb-16"
+              className="flex flex-col md:flex-row items-center gap-8 mb-16"
             >
-              <div className={`w-1/2 ${index % 2 === 0 ? 'order-1' : 'order-2'}`}>
+              <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
                 <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
                   <Image
                     src={story.image}
@@ -60,7 +60,7 @@ export default function StoryTimeline() {
                 </div>
               </div>
               
-              <div className={`w-1/2 ${index % 2 === 0 ? 'order-2' : 'order-1'}`}>
+              <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
                 <div className="relative bg-white p-6 rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                   {/* Corner decorations */}
                   <div className="absolute -top-4 -left-4 w-16 h-16 opacity-30">

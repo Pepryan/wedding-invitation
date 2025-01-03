@@ -202,8 +202,8 @@ export const weddingConfig = {
       },
       {
         date: "Juni 2022",
-        title: "Khittah",
-        description: "Dengan restri orang tua, kami memantapkan niat untuk membangun rumah tangga yang sakinah, mawaddah, wa rahmah. 'Dan nikahkanlah orang-orang yang masih membujang di antara kamu, dan juga orang-orang yang layak dari hamba-hamba sahayamu yang lelaki dan perempuan' (QS. An-Nur: 32).",
+        title: "Khitbah",
+        description: "Dengan restu orang tua, kami memantapkan niat untuk membangun rumah tangga yang sakinah, mawaddah, wa rahmah. 'Dan nikahkanlah orang-orang yang masih membujang di antara kamu, dan juga orang-orang yang layak dari hamba-hamba sahayamu yang lelaki dan perempuan' (QS. An-Nur: 32).",
         image: "wedding-invitation/images/gallery/prewedding-2.webp"
       },
       {
