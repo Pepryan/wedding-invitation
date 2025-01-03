@@ -40,15 +40,15 @@ export default function Gallery() {
           {weddingConfig.gallery.prewedding.map((photo, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, rotateY: 90 }}
-              whileInView={{ opacity: 1, rotateY: 0 }}
-              viewport={{ margin: "0px 0px -100px 0px" }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ margin: "0px 0px -50px 0px" }}
               transition={{
-                duration: 1.2,
+                duration: 0.8,
                 ease: "easeInOut",
-                delay: index * 0.15
+                delay: index * 0.1
               }}
-              className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group transform-style-preserve-3d"
+              className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group"
               onClick={() => {
                 setPhotoIndex(index);
                 setIsOpen(true);
@@ -59,9 +59,10 @@ export default function Gallery() {
                 alt="Pre-wedding photo"
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                className="object-cover backface-hidden"
-                loading={index < 4 ? "eager" : "lazy"}
-                quality={index < 4 ? 75 : 50}
+                className="object-cover"
+                priority={index < 2}
+                loading={index < 2 ? "eager" : "lazy"}
+                quality={index < 2 ? 85 : 65}
                 onLoad={handleImageLoad}
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQrJyEwPENDPzE2O0FBNi5QREZXUFM4UjdqWGB2foVzfHJUQkhzkWNY2ff/2wBDARUXFx4aHR4eHUJBOEFCWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVn/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="

@@ -295,19 +295,19 @@ export const weddingConfig = {
   gallery: {
     prewedding: [
       {
-        url: '/images/gallery/prewedding-1.webp',
+        url: '/images/gallery/optimized/prewedding-1.webp',
         caption: 'Our First Date - Where It All Began'
       },
       {
-        url: '/images/gallery/prewedding-2.webp',
+        url: '/images/gallery/optimized/prewedding-2.webp',
         caption: 'Beach Getaway - Our First Vacation'
       },
       {
-        url: '/images/gallery/prewedding-3.webp',
+        url: '/images/gallery/optimized/prewedding-3.webp',
         caption: 'Hiking Together - Overcoming Challenges'
       },
       {
-        url: '/images/gallery/moment-1.webp',
+        url: '/images/gallery/optimized/moment-1.webp',
         caption: 'First Concert - Sharing Our Love for Music'
       }
     ]
